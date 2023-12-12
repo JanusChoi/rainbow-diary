@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */; };
+		56EC17E72B28703100FC208E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E62B28703100FC208E /* ContentView.swift */; };
+		56EC17E92B28703200FC208E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56EC17E82B28703200FC208E /* Assets.xcassets */; };
+		56EC17EC2B28703200FC208E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56EC17EB2B28703200FC208E /* Preview Assets.xcassets */; };
+		56EC17F62B28703300FC208E /* rainbow_dairyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17F52B28703300FC208E /* rainbow_dairyTests.swift */; };
+		56EC18002B28703300FC208E /* rainbow_dairyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17FF2B28703300FC208E /* rainbow_dairyUITests.swift */; };
+		56EC18022B28703300FC208E /* rainbow_dairyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC18012B28703300FC208E /* rainbow_dairyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		56EC17F22B28703300FC208E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56EC17D92B28703100FC208E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56EC17E02B28703100FC208E;
+			remoteInfo = "rainbow-dairy";
+		};
+		56EC17FC2B28703300FC208E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56EC17D92B28703100FC208E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56EC17E02B28703100FC208E;
+			remoteInfo = "rainbow-dairy";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		56EC17E12B28703100FC208E /* rainbow-dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rainbow-dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyApp.swift; sourceTree = "<group>"; };
+		56EC17E62B28703100FC208E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		56EC17E82B28703200FC208E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		56EC17EB2B28703200FC208E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		56EC17F12B28703300FC208E /* rainbow-dairyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rainbow-dairyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EC17F52B28703300FC208E /* rainbow_dairyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyTests.swift; sourceTree = "<group>"; };
+		56EC17FB2B28703300FC208E /* rainbow-dairyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rainbow-dairyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56EC17FF2B28703300FC208E /* rainbow_dairyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyUITests.swift; sourceTree = "<group>"; };
+		56EC18012B28703300FC208E /* rainbow_dairyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		56EC17DE2B28703100FC208E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17EE2B28703300FC208E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17F82B28703300FC208E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		56EC17D82B28703100FC208E = {
+			isa = PBXGroup;
+			children = (
+				56EC17E32B28703100FC208E /* rainbow-dairy */,
+				56EC17F42B28703300FC208E /* rainbow-dairyTests */,
+				56EC17FE2B28703300FC208E /* rainbow-dairyUITests */,
+				56EC17E22B28703100FC208E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		56EC17E22B28703100FC208E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56EC17E12B28703100FC208E /* rainbow-dairy.app */,
+				56EC17F12B28703300FC208E /* rainbow-dairyTests.xctest */,
+				56EC17FB2B28703300FC208E /* rainbow-dairyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56EC17E32B28703100FC208E /* rainbow-dairy */ = {
+			isa = PBXGroup;
+			children = (
+				56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */,
+				56EC17E62B28703100FC208E /* ContentView.swift */,
+				56EC17E82B28703200FC208E /* Assets.xcassets */,
+				56EC17EA2B28703200FC208E /* Preview Content */,
+			);
+			path = "rainbow-dairy";
+			sourceTree = "<group>";
+		};
+		56EC17EA2B28703200FC208E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				56EC17EB2B28703200FC208E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		56EC17F42B28703300FC208E /* rainbow-dairyTests */ = {
+			isa = PBXGroup;
+			children = (
+				56EC17F52B28703300FC208E /* rainbow_dairyTests.swift */,
+			);
+			path = "rainbow-dairyTests";
+			sourceTree = "<group>";
+		};
+		56EC17FE2B28703300FC208E /* rainbow-dairyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				56EC17FF2B28703300FC208E /* rainbow_dairyUITests.swift */,
+				56EC18012B28703300FC208E /* rainbow_dairyUITestsLaunchTests.swift */,
+			);
+			path = "rainbow-dairyUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		56EC17E02B28703100FC208E /* rainbow-dairy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56EC18052B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairy" */;
+			buildPhases = (
+				56EC17DD2B28703100FC208E /* Sources */,
+				56EC17DE2B28703100FC208E /* Frameworks */,
+				56EC17DF2B28703100FC208E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "rainbow-dairy";
+			productName = "rainbow-dairy";
+			productReference = 56EC17E12B28703100FC208E /* rainbow-dairy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		56EC17F02B28703300FC208E /* rainbow-dairyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56EC18082B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairyTests" */;
+			buildPhases = (
+				56EC17ED2B28703300FC208E /* Sources */,
+				56EC17EE2B28703300FC208E /* Frameworks */,
+				56EC17EF2B28703300FC208E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56EC17F32B28703300FC208E /* PBXTargetDependency */,
+			);
+			name = "rainbow-dairyTests";
+			productName = "rainbow-dairyTests";
+			productReference = 56EC17F12B28703300FC208E /* rainbow-dairyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56EC17FA2B28703300FC208E /* rainbow-dairyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56EC180B2B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairyUITests" */;
+			buildPhases = (
+				56EC17F72B28703300FC208E /* Sources */,
+				56EC17F82B28703300FC208E /* Frameworks */,
+				56EC17F92B28703300FC208E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56EC17FD2B28703300FC208E /* PBXTargetDependency */,
+			);
+			name = "rainbow-dairyUITests";
+			productName = "rainbow-dairyUITests";
+			productReference = 56EC17FB2B28703300FC208E /* rainbow-dairyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		56EC17D92B28703100FC208E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					56EC17E02B28703100FC208E = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					56EC17F02B28703300FC208E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 56EC17E02B28703100FC208E;
+					};
+					56EC17FA2B28703300FC208E = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 56EC17E02B28703100FC208E;
+					};
+				};
+			};
+			buildConfigurationList = 56EC17DC2B28703100FC208E /* Build configuration list for PBXProject "rainbow-dairy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 56EC17D82B28703100FC208E;
+			productRefGroup = 56EC17E22B28703100FC208E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56EC17E02B28703100FC208E /* rainbow-dairy */,
+				56EC17F02B28703300FC208E /* rainbow-dairyTests */,
+				56EC17FA2B28703300FC208E /* rainbow-dairyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56EC17DF2B28703100FC208E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EC17EC2B28703200FC208E /* Preview Assets.xcassets in Resources */,
+				56EC17E92B28703200FC208E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17EF2B28703300FC208E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17F92B28703300FC208E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		56EC17DD2B28703100FC208E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EC17E72B28703100FC208E /* ContentView.swift in Sources */,
+				56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17ED2B28703300FC208E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EC17F62B28703300FC208E /* rainbow_dairyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56EC17F72B28703300FC208E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56EC18002B28703300FC208E /* rainbow_dairyUITests.swift in Sources */,
+				56EC18022B28703300FC208E /* rainbow_dairyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		56EC17F32B28703300FC208E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56EC17E02B28703100FC208E /* rainbow-dairy */;
+			targetProxy = 56EC17F22B28703300FC208E /* PBXContainerItemProxy */;
+		};
+		56EC17FD2B28703300FC208E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56EC17E02B28703100FC208E /* rainbow-dairy */;
+			targetProxy = 56EC17FC2B28703300FC208E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		56EC18032B28703300FC208E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		56EC18042B28703300FC208E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		56EC18062B28703300FC208E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"rainbow-dairy/Preview Content\"";
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		56EC18072B28703300FC208E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"rainbow-dairy/Preview Content\"";
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairy";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		56EC18092B28703300FC208E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rainbow-dairy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rainbow-dairy";
+			};
+			name = Debug;
+		};
+		56EC180A2B28703300FC208E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairyTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rainbow-dairy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/rainbow-dairy";
+			};
+			name = Release;
+		};
+		56EC180C2B28703300FC208E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "rainbow-dairy";
+			};
+			name = Debug;
+		};
+		56EC180D2B28703300FC208E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L9YYJSZ682;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.huoshui.rainbow-dairyUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "rainbow-dairy";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		56EC17DC2B28703100FC208E /* Build configuration list for PBXProject "rainbow-dairy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56EC18032B28703300FC208E /* Debug */,
+				56EC18042B28703300FC208E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56EC18052B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56EC18062B28703300FC208E /* Debug */,
+				56EC18072B28703300FC208E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56EC18082B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56EC18092B28703300FC208E /* Debug */,
+				56EC180A2B28703300FC208E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56EC180B2B28703300FC208E /* Build configuration list for PBXNativeTarget "rainbow-dairyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56EC180C2B28703300FC208E /* Debug */,
+				56EC180D2B28703300FC208E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 56EC17D92B28703100FC208E /* Project object */;
+}
