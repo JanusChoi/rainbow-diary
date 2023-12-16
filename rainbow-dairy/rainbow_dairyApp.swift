@@ -12,6 +12,7 @@ struct rainbow_dairyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(MessageService())
         }
     }
 }

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562E7D1A2B2AB1F1003A5E5C /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D192B2AB1F1003A5E5C /* MessageHandler.swift */; };
+		562E7D1C2B2AB345003A5E5C /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D1B2B2AB345003A5E5C /* MessageService.swift */; };
+		562E7D1F2B2D3786003A5E5C /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 562E7D1E2B2D3786003A5E5C /* OpenAI */; };
+		562E7D212B2D574E003A5E5C /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D202B2D574E003A5E5C /* TodayView.swift */; };
+		562E7D232B2D576E003A5E5C /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D222B2D576E003A5E5C /* StoryView.swift */; };
+		562E7D252B2D57A1003A5E5C /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D242B2D57A1003A5E5C /* InsightView.swift */; };
+		562E7D282B2D9AF6003A5E5C /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 562E7D272B2D9AF6003A5E5C /* SwiftUICharts */; };
+		56CC74832B299EBA0000D9FF /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56CC74822B299EBA0000D9FF /* OpenAISwift */; };
 		56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */; };
 		56EC17E72B28703100FC208E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E62B28703100FC208E /* ContentView.swift */; };
 		56EC17E92B28703200FC208E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56EC17E82B28703200FC208E /* Assets.xcassets */; };
@@ -34,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562E7D192B2AB1F1003A5E5C /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		562E7D1B2B2AB345003A5E5C /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		562E7D202B2D574E003A5E5C /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		562E7D222B2D576E003A5E5C /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		562E7D242B2D57A1003A5E5C /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
 		56EC17E12B28703100FC208E /* rainbow-dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rainbow-dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyApp.swift; sourceTree = "<group>"; };
 		56EC17E62B28703100FC208E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562E7D282B2D9AF6003A5E5C /* SwiftUICharts in Frameworks */,
+				562E7D1F2B2D3786003A5E5C /* OpenAI in Frameworks */,
+				56CC74832B299EBA0000D9FF /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +87,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		562E7D182B2AB1BD003A5E5C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				562E7D192B2AB1F1003A5E5C /* MessageHandler.swift */,
+				562E7D1B2B2AB345003A5E5C /* MessageService.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		56EC17D82B28703100FC208E = {
 			isa = PBXGroup;
 			children = (
+				562E7D182B2AB1BD003A5E5C /* Utility */,
 				56EC17E32B28703100FC208E /* rainbow-dairy */,
 				56EC17F42B28703300FC208E /* rainbow-dairyTests */,
 				56EC17FE2B28703300FC208E /* rainbow-dairyUITests */,
@@ -98,6 +124,9 @@
 				56EC17E62B28703100FC208E /* ContentView.swift */,
 				56EC17E82B28703200FC208E /* Assets.xcassets */,
 				56EC17EA2B28703200FC208E /* Preview Content */,
+				562E7D202B2D574E003A5E5C /* TodayView.swift */,
+				562E7D222B2D576E003A5E5C /* StoryView.swift */,
+				562E7D242B2D57A1003A5E5C /* InsightView.swift */,
 			);
 			path = "rainbow-dairy";
 			sourceTree = "<group>";
@@ -143,6 +172,11 @@
 			dependencies = (
 			);
 			name = "rainbow-dairy";
+			packageProductDependencies = (
+				56CC74822B299EBA0000D9FF /* OpenAISwift */,
+				562E7D1E2B2D3786003A5E5C /* OpenAI */,
+				562E7D272B2D9AF6003A5E5C /* SwiftUICharts */,
+			);
 			productName = "rainbow-dairy";
 			productReference = 56EC17E12B28703100FC208E /* rainbow-dairy.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +249,11 @@
 				Base,
 			);
 			mainGroup = 56EC17D82B28703100FC208E;
+			packageReferences = (
+				56CC74812B299EBA0000D9FF /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				562E7D1D2B2D3786003A5E5C /* XCRemoteSwiftPackageReference "OpenAI" */,
+				562E7D262B2D9AF6003A5E5C /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 56EC17E22B28703100FC208E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,7 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562E7D232B2D576E003A5E5C /* StoryView.swift in Sources */,
 				56EC17E72B28703100FC208E /* ContentView.swift in Sources */,
+				562E7D1C2B2AB345003A5E5C /* MessageService.swift in Sources */,
+				562E7D252B2D57A1003A5E5C /* InsightView.swift in Sources */,
+				562E7D1A2B2AB1F1003A5E5C /* MessageHandler.swift in Sources */,
+				562E7D212B2D574E003A5E5C /* TodayView.swift in Sources */,
 				56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +632,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		562E7D1D2B2D3786003A5E5C /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		562E7D262B2D9AF6003A5E5C /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+		56CC74812B299EBA0000D9FF /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		562E7D1E2B2D3786003A5E5C /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 562E7D1D2B2D3786003A5E5C /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+		562E7D272B2D9AF6003A5E5C /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 562E7D262B2D9AF6003A5E5C /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		56CC74822B299EBA0000D9FF /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 56CC74812B299EBA0000D9FF /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 56EC17D92B28703100FC208E /* Project object */;
 }
