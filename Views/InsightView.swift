@@ -14,6 +14,8 @@ struct InsightView: View {
             VStack {
                 TextCardView()
                 MoodTrendCardView()
+                Divider()
+//                    .frame(height: geometry.size.height)
                 WordFrequencyCardView()
                 PersonalityTraitCardView()
             }
@@ -41,18 +43,23 @@ struct TextCardView: View {
 
 struct MoodTrendCardView: View {
     var body: some View {
-        LineView(data: [8, 23, 54, 32, 12, 37, 7], title: "心情趋势")
-            .padding()
-            .frame(height: 400)
+        VStack(){
+            LineView(data: [8, 23, 54, 32, 12, 37, 7], title: "心情趋势")
+                .padding()
+                .frame(height: 400)
+        }
+        .background(Color.white)
+        .padding(.all, 10.0)
+        .cornerRadius(50)
+        .shadow(radius: 25)
     }
+        
 }
 
 
 struct WordFrequencyCardView: View {
     var body: some View {
-        BarChartView(data: ChartData(values: [("关键词1", 6), ("关键词2", 9), ("关键词3", 7)]), title: "词频统计")
-            .frame(maxWidth: .infinity) // 使用最大宽度
-            .frame(height: 300) // 设置固定高度
+            BarChartView(data: ChartData(values: [("关键词1", 6), ("关键词1", 6), ("关键词2", 9), ("关键词3", 7)]), title: "词频统计", form: ChartForm.extraLarge)
     }
 }
 
@@ -65,10 +72,9 @@ struct PersonalityTraitCardView: View {
                 ("尽责", 60),
                 ("情绪稳定", 85),
                 ("开放性", 90)
-            ]), title: "大五人格分析")
+            ]), title: "大五人格分析", form: ChartForm.extraLarge)
         }
         .padding()
-        .frame(width: .infinity)
     }
 }
 
