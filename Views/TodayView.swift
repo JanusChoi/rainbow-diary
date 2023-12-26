@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TodayView: View {
     @State private var messageText: String = ""
+    @State private var entries: [Entry] = []
     @State private var messages: [(text: String, isUser: Bool, date: Date)] = []
     @State private var isTextFieldVisible: Bool = true
     @EnvironmentObject var messageService: MessageService

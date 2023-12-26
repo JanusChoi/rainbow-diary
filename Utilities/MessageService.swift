@@ -10,9 +10,17 @@ import OpenAI
 
 class MessageService: MessageSender, ObservableObject {
     @Published var responseMessage: String? = nil
-    private let openAI = OpenAI(apiToken: "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")
+    //    private let openAI = OpenAI(apiToken: "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")
     
     func sendMessage(_ message: String) {
+        guard let openaiKey = getOpenAIKey() else {
+            print("OpenAI Key not found")
+            return
+        }
+        
+        print("Sending message: \(message) with OpenAI Key")
+        
+        let openAI = OpenAI(apiToken: openaiKey)
         // 创建 ChatQuery 实例
         let chatQuery = ChatQuery(model: "gpt-3.5-turbo-0613", messages: [.init(role: .user, content: message)])
         
@@ -30,5 +38,9 @@ class MessageService: MessageSender, ObservableObject {
                 print("Error calling OpenAI: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func getOpenAIKey() -> String? {
+        UserDefaults.standard.string(forKey: "openaiKey")
     }
 }

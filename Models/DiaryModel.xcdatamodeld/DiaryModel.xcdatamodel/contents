@@ -1,2 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="DaySummary" representedClassName="DaySummary" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="summaryText" optional="YES" attributeType="String"/>
+        <relationship name="entry" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="daySummary" inverseEntity="Entry"/>
+        <relationship name="moodSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoodSummary" inverseName="daySummary" inverseEntity="MoodSummary"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryUser" inverseName="summaries" inverseEntity="DiaryUser"/>
+    </entity>
+    <entity name="DiaryUser" representedClassName="DiaryUser" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="username" attributeType="String"/>
+        <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="user" inverseEntity="Entry"/>
+        <relationship name="personality" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Personality" inverseName="user" inverseEntity="Personality"/>
+        <relationship name="summaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DaySummary" inverseName="user" inverseEntity="DaySummary"/>
+    </entity>
+    <entity name="Entry" representedClassName="Entry" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hasTriggeredChat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="keywords" optional="YES" attributeType="String"/>
+        <attribute name="text" attributeType="String"/>
+        <relationship name="daySummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DaySummary" inverseName="entry" inverseEntity="DaySummary"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GeneratedImage" inverseName="entry" inverseEntity="GeneratedImage"/>
+        <relationship name="mood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mood" inverseName="entry" inverseEntity="Mood"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryUser" inverseName="entries" inverseEntity="DiaryUser"/>
+    </entity>
+    <entity name="GeneratedImage" representedClassName="GeneratedImage" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageData" optional="YES" attributeType="String"/>
+        <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="images" inverseEntity="Entry"/>
+    </entity>
+    <entity name="Mood" representedClassName="Mood" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="moodStrength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="moodType" optional="YES" attributeType="String"/>
+        <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="mood" inverseEntity="Entry"/>
+    </entity>
+    <entity name="MoodSummary" representedClassName="MoodSummary" syncable="YES" codeGenerationType="class">
+        <attribute name="averageMood" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="daySummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DaySummary" inverseName="moodSummary" inverseEntity="DaySummary"/>
+    </entity>
+    <entity name="Personality" representedClassName="Personality" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="score" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="traitType" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DiaryUser" inverseName="personality" inverseEntity="DiaryUser"/>
+    </entity>
+</model>
