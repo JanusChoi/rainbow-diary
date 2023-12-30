@@ -44,3 +44,4 @@ class MessageService: MessageSender, ObservableObject {
         UserDefaults.standard.string(forKey: "openaiKey")
     }
 }
+

@@ -267,3 +267,37 @@ struct ContentView_Previews: PreviewProvider {
 - **情绪（Mood）** 和 **情绪总结（MoodSummary）** 可以设计为可选关联，因为不是每条记录都需要情绪分析。
 
 这个设计可以根据项目进展和具体需求进行调整。要开始实现，您需要在 Xcode 中创建这些实体，并建立它们之间的关系。之后，您可以生成相应的 `NSManagedObject` 子类，并在您的 `DataStorageService` 中实现数据的增删改查逻辑。
+
+
+我正在研发一个多模态笔记工具，是一个iOS App，使用Swift语言进行开发。
+
+我需要一个用户输入框，其支持两种输入模式，一种是简单模式只支持输入文字。另一种是长文本编辑模式，通过一个“展开”按钮唤起。这个长文本编辑模式比较复杂，所以需要用一个单独的EditorView来做。
+
+我需要在用户输入时支持Markdown格式，然后可以上传照片，可以录音输入等，因此在长文本编辑时，用户的手机键盘上方会有：“MD/Rich”，图片，录音三个功能按钮。MD/Rich方便用户切换是用Markdown格式输入还是直接富文本编辑。
+
+现在请你扮演一名精通iOS Swift研发专家，帮我看看Swift本身是不是已经有一些现成的支持这类需求的组件，如果没有的话，请把EditorView.swift的代码给我写出来。
+
+
+在SwiftUI中，`Image(systemName:)` 使用的是 Apple 的 SF Symbols 图标集。SF Symbols 提供了一系列的系统图标，你可以在 Apple 的 SF Symbols 应用程序中查看和搜索这些图标。
+
+### 如何获取 SF Symbols 应用程序：
+
+1. **访问 Apple 的官方网站**：SF Symbols 应用程序可以从 Apple 的官方网站免费下载。你可以访问 [Apple Design Resources](https://developer.apple.com/sf-symbols/) 页面找到 SF Symbols 的下载链接。
+
+2. **下载并安装**：下载 SF Symbols 应用程序并将其安装到你的 Mac 上。
+
+### 如何使用 SF Symbols 应用程序：
+
+1. **浏览图标**：打开 SF Symbols 应用程序后，你可以浏览所有可用的图标。每个图标旁边都会显示其对应的名称。
+
+2. **搜索图标**：应用程序提供了一个搜索栏，你可以通过关键词搜索特定的图标。
+
+3. **查看和复制名称**：找到你想要的图标后，点击它并复制图标的名称。然后在你的 SwiftUI 代码中使用这个名称，如 `Image(systemName: "图标名称")`。
+
+### 注意事项：
+
+- 每个版本的 iOS、iPadOS 和 macOS 可能支持的 SF Symbols 图标集有所不同。请确保你使用的图标在目标操作系统版本中可用。
+
+- SF Symbols 应用程序目前只在 Mac 上提供，不支持 Windows 或其他操作系统。
+
+通过使用 SF Symbols，你可以确保你的应用与 iOS 系统的设计风格保持一致，同时也能利用 Apple 提供的大量高质量图标资源。

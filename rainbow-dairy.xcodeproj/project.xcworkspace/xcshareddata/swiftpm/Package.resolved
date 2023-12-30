@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "markdownkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bmoliveira/MarkdownKit",
+      "state" : {
+        "branch" : "master",
+        "revision" : "4270b02490752f5c224de790764465faf552ec63"
+      }
+    },
+    {
       "identity" : "openai",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MacPaw/OpenAI",

@@ -12,3 +12,7 @@ import Foundation
 protocol MessageSender {
     func sendMessage(_ message: String)
 }
+
+protocol VoiceTranscribe {
+    func transcribeVoice(_ voiceData: Data, completion: @escaping (String?, Error?) -> Void)
+}

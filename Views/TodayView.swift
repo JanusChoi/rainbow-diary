@@ -12,39 +12,71 @@ struct TodayView: View {
     @State private var entries: [Entry] = []
     @State private var messages: [(text: String, isUser: Bool, date: Date)] = []
     @State private var isTextFieldVisible: Bool = true
+    @State private var isEditorExpanded: Bool = false
     @EnvironmentObject var messageService: MessageService
     
     var body: some View {
         VStack {
-            // 聊天记录
-            ScrollView {
-                ForEach(messages, id: \.text) { message in
-                    if isNewDay(message: message) {
-                        Text(formatDate(message.date))
-                            .font(.caption)
-                            .foregroundColor(.gray)
+            if !isEditorExpanded {
+                // 聊天记录
+                ScrollView {
+                    ForEach(messages, id: \.text) { message in
+                        if isNewDay(message: message) {
+                            Text(formatDate(message.date))
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        ChatBubble(text: message.text, isUser: message.isUser)
                     }
-                    ChatBubble(text: message.text, isUser: message.isUser)
                 }
+                .gesture(DragGesture().onChanged(handleDragGesture))
             }
-            .gesture(DragGesture().onChanged(handleDragGesture))
             
-            
-            
-            HStack {
-                // 文本输入框
-                if isTextFieldVisible {
-                    TextField("Enter message", text: $messageText, onCommit: sendMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+            // 展开/收起按钮
+            Button(action: {
+                isEditorExpanded.toggle()
+            }) {
+                HStack {
+                    Text(isEditorExpanded ? "收起" : "展开")
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
+                    if isEditorExpanded {
+                        Image(systemName: "arrow.down.circle")
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .imageScale(.small)
+                    }
+                    else {
+                        Image(systemName: "arrow.up.circle")
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .imageScale(.small)
+                    }
                 }
-                // 语音输入按钮
-                Button(action: startVoiceInput) {
-                    Image(systemName: "mic.fill")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.gray)
-                        .clipShape(Circle())
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+            if isEditorExpanded {
+                // 展开状态，显示EditorView
+                EditorView()
+                    .transition(.move(edge: .bottom))
+                    .animation(.spring(duration: 2.0), value: isEditorExpanded)
+            } else {
+                HStack {
+                    // 文本输入框
+                    if isTextFieldVisible {
+                        TextField("Enter message", text: $messageText, onCommit: sendMessage)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal)
+                    }
+                    // 语音输入按钮
+                    Button(action: startVoiceInput) {
+                        Image(systemName: "plus")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.gray)
+                            .clipShape(Circle())
+                            .imageScale(.small)
+                    }
                 }
             }
         }.onReceive(messageService.$responseMessage) { response in
