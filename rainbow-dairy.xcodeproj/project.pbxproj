@@ -25,6 +25,9 @@
 		562E7D722B3B068E003A5E5C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D712B3B068E003A5E5C /* SettingsView.swift */; };
 		562E7D742B3EC5F5003A5E5C /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E7D732B3EC5F5003A5E5C /* EditorView.swift */; };
 		562E7D772B3ECB77003A5E5C /* MarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = 562E7D762B3ECB77003A5E5C /* MarkdownKit */; };
+		56A2EBC12B442EBF00A99222 /* ChatStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2EBC02B442EBF00A99222 /* ChatStore.swift */; };
+		56A2EBC32B44413500A99222 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2EBC22B44413500A99222 /* Conversation.swift */; };
+		56A2EBC52B44414800A99222 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2EBC42B44414800A99222 /* Message.swift */; };
 		56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */; };
 		56EC17E72B28703100FC208E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EC17E62B28703100FC208E /* ContentView.swift */; };
 		56EC17E92B28703200FC208E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56EC17E82B28703200FC208E /* Assets.xcassets */; };
@@ -68,6 +71,9 @@
 		562E7D6F2B343D58003A5E5C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		562E7D712B3B068E003A5E5C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		562E7D732B3EC5F5003A5E5C /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		56A2EBC02B442EBF00A99222 /* ChatStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStore.swift; sourceTree = "<group>"; };
+		56A2EBC22B44413500A99222 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		56A2EBC42B44414800A99222 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		56EC17E12B28703100FC208E /* rainbow-dairy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rainbow-dairy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56EC17E42B28703100FC208E /* rainbow_dairyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rainbow_dairyApp.swift; sourceTree = "<group>"; };
 		56EC17E62B28703100FC208E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 			children = (
 				562E7D192B2AB1F1003A5E5C /* MessageHandler.swift */,
 				562E7D1B2B2AB345003A5E5C /* MessageService.swift */,
+				56A2EBC02B442EBF00A99222 /* ChatStore.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 			children = (
 				562E7D332B303D24003A5E5C /* InsightData.swift */,
 				562E7D442B31E075003A5E5C /* DiaryModel.xcdatamodeld */,
+				56A2EBC22B44413500A99222 /* Conversation.swift */,
+				56A2EBC42B44414800A99222 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,10 +385,13 @@
 				562E7D1C2B2AB345003A5E5C /* MessageService.swift in Sources */,
 				562E7D252B2D57A1003A5E5C /* InsightView.swift in Sources */,
 				562E7D342B303D24003A5E5C /* InsightData.swift in Sources */,
+				56A2EBC52B44414800A99222 /* Message.swift in Sources */,
 				562E7D2A2B2E942F003A5E5C /* ChartTest.swift in Sources */,
 				562E7D382B304067003A5E5C /* DataAnalysisService.swift in Sources */,
+				56A2EBC12B442EBF00A99222 /* ChatStore.swift in Sources */,
 				562E7D1A2B2AB1F1003A5E5C /* MessageHandler.swift in Sources */,
 				562E7D212B2D574E003A5E5C /* TodayView.swift in Sources */,
+				56A2EBC32B44413500A99222 /* Conversation.swift in Sources */,
 				562E7D322B303CCF003A5E5C /* ChatViewModel.swift in Sources */,
 				56EC17E52B28703100FC208E /* rainbow_dairyApp.swift in Sources */,
 				562E7D742B3EC5F5003A5E5C /* EditorView.swift in Sources */,
