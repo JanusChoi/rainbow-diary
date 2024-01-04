@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  rainbow-dairy
 //
-//  Created by Janus Wing on 2023/12/26.
+//  Created by Janus Wing on 2024/1/3.
 //
 
 import SwiftUI

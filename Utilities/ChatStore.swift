@@ -96,8 +96,20 @@ public final class ChatStore: ObservableObject {
                   required: ["location"]
                 )
             )
+            
+            let moodFunction = ChatFunctionDeclaration(
+                name: "getMoodData",
+                description: "Get the current mood base on given context",
+                parameters: .init(
+                  type: .object,
+                  properties: [
+                    "context": .init(type: .string, description: "Today I am having a good day, e.g. Happy")
+                  ],
+                  required: ["context"]
+                )
+            )
 
-            let functions = [weatherFunction]
+            let functions = [weatherFunction, moodFunction]
             
             let chatsStream: AsyncThrowingStream<ChatStreamResult, Error> = openAIClient.chatsStream(
                 query: ChatQuery(

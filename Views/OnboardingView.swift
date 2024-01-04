@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Binding var hasCompletedOnboarding: Bool
+    @State private var openaiKey: String = ""
     @State private var username: String = ""
     @State private var selectedCategory: String = ""
     @State private var isOnboardingComplete = false
@@ -18,7 +19,7 @@ struct OnboardingView: View {
     @State private var showStartButton = false
     @State private var onboardingStep = 1
     
-    let categories = ["心情", "知识", "工作", "祷告"]
+    let categories = ["Mood", "Info", "Prayer", "Just Start"]
     let dataService: DataStorageService
     
     var body: some View {
@@ -28,12 +29,24 @@ struct OnboardingView: View {
             VStack {
                 Group {
                     if onboardingStep == 1 {
-                        Text("希望我如何称呼您？")
-                        TextField("填入昵称", text: $username)
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Text("Input your OpenAI key")
+                        Text(
+                        "You can find and configure your OpenAI API key at"
+                        )
+                        .font(.caption)
+                        Link(
+                            "openai",
+                            destination: URL(string: "https://platform.openai.com/account/api-keys")!
+                        )
+                        .font(.caption)
+                        TextField("sk-XXXXXX", text: $openaiKey)
+                            .multilineTextAlignment(.center)
+                    }
+                    if onboardingStep == 2 {
+                        Text("What do you want me to call you?")
+                        TextField("Your Nick Name", text: $username)
                             .transition(AnyTransition.opacity.animation(.easeIn))
                             .multilineTextAlignment(.center)
-//                            .foregroundColor(.orange)
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 15)
@@ -42,9 +55,9 @@ struct OnboardingView: View {
                             .padding()
                     }
                     
-                    if onboardingStep == 2 {
-                        Text("您希望记录的内容")
-                        Picker("您希望记录的内容", selection: $selectedCategory) {
+                    if onboardingStep == 3 {
+                        Text("What you want to record")
+                        Picker("What you want to record", selection: $selectedCategory) {
                             ForEach(categories, id: \.self) {
                                 Text($0)
                             }
@@ -54,23 +67,22 @@ struct OnboardingView: View {
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                     }
                     
-                    if onboardingStep == 3 {
-                        Text("一切准备开启")
+                    if onboardingStep == 4 {
+                        Text("Get Ready...")
                             .transition(AnyTransition.opacity.animation(.easeIn))
                     }
                 }
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .padding()
                 
-                // 提交按钮
                 Button(action: {
                     withAnimation {
                         proceedToNextStep()
                     }
                 }) {
-                    Text(onboardingStep == 3 ? "开始" : "下一步")
+                    Text(onboardingStep == 4 ? "Go" : "Continue")
                 }
-                .disabled(onboardingStep == 1 && username.isEmpty)
+                .disabled(onboardingStep == 1 && openaiKey.isEmpty)
                 .padding()
             }
             .padding()
@@ -78,17 +90,16 @@ struct OnboardingView: View {
     }
     
     private func createUserAndCompleteOnboarding() {
-        let newUser = dataService.createUser(username: username, createdAt: Date())
+        let newUser = dataService.createUser(username: username, createdAt: Date(), openaiKey: openaiKey)
         UserDefaults.standard.set(newUser.id?.uuidString, forKey: "diaryUserId")
         hasCompletedOnboarding = true
     }
     
-    // 处理下一步逻辑
+    // Next Step Logic
     private func proceedToNextStep() {
-        if onboardingStep < 3 {
+        if onboardingStep < 4 {
             onboardingStep += 1
-        } else if onboardingStep == 3 {
-            // TODO: 处理完成引导后的逻辑，比如创建用户并跳转到ContentView
+        } else if onboardingStep == 4 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 createUserAndCompleteOnboarding()
             }

@@ -52,12 +52,13 @@ class DataStorageService {
     // MARK: - User Entity
     
     // 创建一个新用户的方法。
-    func createUser(username: String, createdAt: Date) -> DiaryUser {
+    func createUser(username: String, createdAt: Date, openaiKey: String) -> DiaryUser {
         let context = persistentContainer.viewContext
         // 创建一个新的User实体。
         let user = DiaryUser(context: context)
         user.id = UUID()
         user.username = username
+        user.openaiKey = openaiKey
         user.createdAt = createdAt
         saveContext()
         return user
