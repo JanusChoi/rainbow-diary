@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct TodayView: View {
+    @ObservedObject var store: ChatStore
+    
+    @Environment(\.dateProviderValue) var dateProvider
+    @Environment(\.idProviderValue) var idProvider
+    
     @State private var messageText: String = ""
     @State private var entries: [Entry] = []
     @State private var messages: [(text: String, isUser: Bool, date: Date)] = []
@@ -15,61 +20,28 @@ struct TodayView: View {
     @State private var isEditorExpanded: Bool = false
     @EnvironmentObject var messageService: MessageService
     
+    public init(store: ChatStore) {
+        self.store = store
+    }
+    
     var body: some View {
-        VStack {
-            if !isEditorExpanded {
-                // 聊天记录
-                ScrollView {
-                    ForEach(messages, id: \.text) { message in
-                        if isNewDay(message: message) {
-                            Text(formatDate(message.date))
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                        }
-                        ChatBubble(text: message.text, isUser: message.isUser)
-                    }
-                }
-                .gesture(DragGesture().onChanged(handleDragGesture))
-            }
-            
-            // 展开/收起按钮
-            Button(action: {
-                isEditorExpanded.toggle()
-            }) {
-                HStack {
-                    Text(isEditorExpanded ? "收起" : "展开")
-                        .foregroundColor(.black)
-                        .cornerRadius(10)
-                    if isEditorExpanded {
-                        Image(systemName: "arrow.down.circle")
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                            .imageScale(.small)
-                    }
-                    else {
-                        Image(systemName: "arrow.up.circle")
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                            .imageScale(.small)
-                    }
-                }
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            
-            if isEditorExpanded {
-                // 展开状态，显示EditorView
-                EditorView()
-                    .transition(.move(edge: .bottom))
-                    .animation(.spring(duration: 2.0), value: isEditorExpanded)
-            } else {
-                HStack {
-                    // 文本输入框
-                    if isTextFieldVisible {
-                        TextField("Enter message", text: $messageText, onCommit: sendMessage)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.horizontal)
-                    }
-                    // 语音输入按钮
-                    Button(action: startVoiceInput) {
+        NavigationSplitView {
+            ListView(
+                conversations: $store.conversations,
+                selectedConversationId: Binding<Conversation.ID?>(
+                    get: {
+                        store.selectedConversationID
+                    }, set: { newId in
+                        store.selectConversation(newId)
+                    })
+            )
+            .toolbar {
+                ToolbarItem(
+                    placement: .primaryAction
+                ) {
+                    Button(action: {
+                        store.createConversation()
+                    }) {
                         Image(systemName: "plus")
                             .foregroundColor(.white)
                             .padding()
@@ -79,9 +51,26 @@ struct TodayView: View {
                     }
                 }
             }
-        }.onReceive(messageService.$responseMessage) { response in
-            if let responseText = response {
-                self.messages.append((text: "GPT: \(responseText)", isUser: false, date: Date()))
+        } detail: {
+            if let conversation = store.selectedConversation {
+                DetailView(
+                    conversation: conversation,
+                    error: store.conversationErrors[conversation.id],
+                    sendMessage: { message, selectedModel in
+                        Task {
+                            await store.sendMessage(
+                                Message(
+                                    id: idProvider(),
+                                    role: .user,
+                                    content: message,
+                                    createdAt: dateProvider()
+                                ),
+                                conversationId: conversation.id,
+                                model: selectedModel
+                            )
+                        }
+                    }
+                )
             }
         }
     }
@@ -122,38 +111,15 @@ struct TodayView: View {
     }
 }
 
-struct ChatBubble: View {
-    let text: String
-    let isUser: Bool
-    
-    var body: some View {
-        HStack {
-            if isUser {
-                Spacer()
-                Text(text)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(15)
-            } else {
-                Text(text)
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(15)
-                Spacer()
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
 extension CGFloat {
     var abs: CGFloat {
         return Swift.abs(self)
     }
 }
 
-struct TodayView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodayView().environmentObject(MessageService())
-    }
-}
+
+//struct TodayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodayView().environmentObject(MessageService())
+//    }
+//}

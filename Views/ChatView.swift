@@ -31,7 +31,7 @@ public struct ChatView: View {
             )
             .toolbar {
                 ToolbarItem(
-                    placement: .primaryAction
+                    placement: .navigationBarTrailing
                 ) {
                     Button(action: {
                         store.createConversation()

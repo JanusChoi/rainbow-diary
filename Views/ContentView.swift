@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var chatStore: ChatStore
     @State private var messageText: String = ""
     @State private var messages: [(text: String, isUser: Bool, date: Date)] = []
     @State private var isTextFieldVisible: Bool = true
@@ -12,20 +13,22 @@ struct ContentView: View {
             // 自定义导航栏视图
             HStack {
                 TabView {
-                    TodayView()
+                    TodayView(
+                        store: chatStore
+                    )
                         .tabItem {
-                            Label("今天", systemImage: "calendar")
+                            Label("Today", systemImage: "calendar")
                         }
                         .environmentObject(messageService)
                     
                     StoryView()
                         .tabItem {
-                            Label("故事", systemImage: "book.closed")
+                            Label("Story", systemImage: "book.closed")
                         }
                     
                     InsightView()
                         .tabItem {
-                            Label("洞察", systemImage: "eye")
+                            Label("Insight", systemImage: "eye")
                         }
                 }
             }
@@ -35,8 +38,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(MessageService())
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView().environmentObject(MessageService())
+//    }
+//}

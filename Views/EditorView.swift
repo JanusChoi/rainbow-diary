@@ -11,6 +11,8 @@ import MarkdownKit
 struct EditorView: View {
     @State private var text: String = ""
     @State private var isMarkdown: Bool = true
+    @StateObject private var speechStore = SpeechStore()
+    @State private var isRecording = false
     
     var body: some View {
         VStack {
@@ -26,21 +28,37 @@ struct EditorView: View {
                 Button(action: toggleEditor) {
                     Image(systemName: "book").imageScale(.large)
                 }
-                Text(isMarkdown ? "MD":"Rich")
+                Text(isMarkdown ? "MD#":"Rich")
             }
             Spacer()
             VStack {
                 Button(action: addImage) {
                     Image(systemName: "photo").imageScale(.large)
                 }
-                Text("图片")
+                Text("Pic")
             }
             Spacer()
             VStack {
-                Button(action: recordAudio) {
+//                Button(action: recordAudio) {
+//                    Image(systemName: "mic").imageScale(.large)
+//                }
+//                Text("Speak")
+                Button(action: {
+                    self.isRecording.toggle()
+                    if self.isRecording {
+                        try? self.speechStore.startRecording()
+                    } else {
+                        self.speechStore.stopRecording()
+                    }
+                }) {
                     Image(systemName: "mic").imageScale(.large)
+//                    Text(isRecording ? "Release to go" : "Hold to speak")
                 }
-                Text("录音")
+//                .padding()
+//                .background(isRecording ? Color.red : Color.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+                Text("Speak")
             }
             Spacer()
             // 其他按钮可以放置在这里

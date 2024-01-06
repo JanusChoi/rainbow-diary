@@ -17,7 +17,8 @@ struct DetailView: View {
     @State var inputText: String = ""
     @FocusState private var isFocused: Bool
     @State private var showsModelSelectionSheet = false
-    @State private var selectedChatModel: Model = .gpt4_0613
+    @State private var selectedChatModel: Model = .gpt3_5Turbo_16k_0613
+    @State private var isEditorExpanded: Bool = false
 
     private let availableChatModels: [Model] = [.gpt3_5Turbo_16k_0613, .gpt4_0613]
 
@@ -45,72 +46,55 @@ struct DetailView: View {
         NavigationStack {
             ScrollViewReader { scrollViewProxy in
                 VStack {
-                    List {
-                        ForEach(conversation.messages) { message in
-                            ChatBubble(text: message.content, isUser: true)
+                    if !isEditorExpanded {
+                        List {
+                            ForEach(conversation.messages) { message in
+                                ChatBubble(message: message)
+                            }
+                            .listRowSeparator(.hidden)
                         }
-                        .listRowSeparator(.hidden)
+                        .listStyle(.plain)
+                        .animation(.default, value: conversation.messages)
                     }
-                    .listStyle(.plain)
-                    .animation(.default, value: conversation.messages)
-//                    .onChange(of: conversation) { newValue in
-//                        if let lastMessage = newValue.messages.last {
-//                            scrollViewProxy.scrollTo(lastMessage.id, anchor: .bottom)
-//                        }
-//                    }
+                    
 
                     if let error = error {
                         errorMessage(error: error)
                     }
-
-                    inputBar(scrollViewProxy: scrollViewProxy)
-                }
-                .navigationTitle("Chat")
-                .safeAreaInset(edge: .top) {
-                    HStack {
-                        Text(
-                            "Model: \(selectedChatModel)"
-                        )
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        Spacer()
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            showsModelSelectionSheet.toggle()
-                        }) {
-                            Image(systemName: "cpu")
-                        }
-                    }
-                }
-                .confirmationDialog(
-                    "Select model",
-                    isPresented: $showsModelSelectionSheet,
-                    titleVisibility: .visible,
-                    actions: {
-                        ForEach(availableChatModels, id: \.self) { model in
-                            Button {
-                                selectedChatModel = model
-                            } label: {
-                                Text(model)
+                    // Expand or Collapse EditorView
+                    Button(action: {
+                        isEditorExpanded.toggle()
+                    }) {
+                        HStack {
+                            Text(isEditorExpanded ? "Collapse" : "Expand")
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                            if isEditorExpanded {
+                                Image(systemName: "arrow.down.circle")
+                                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                    .imageScale(.small)
+                            }
+                            else {
+                                Image(systemName: "arrow.up.circle")
+                                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                                    .imageScale(.small)
                             }
                         }
-
-                        Button("Cancel", role: .cancel) {
-                            showsModelSelectionSheet = false
-                        }
-                    },
-                    message: {
-                        Text(
-                            "View https://platform.openai.com/docs/models/overview for details"
-                        )
-                        .font(.caption)
+                        .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                )
+                    
+                    if isEditorExpanded {
+                        // 展开状态，显示EditorView
+                        EditorView()
+                            .transition(.move(edge: .bottom))
+                            .animation(.spring(duration: 2.0), value: isEditorExpanded)
+                    } else {
+                        inputBar(scrollViewProxy: scrollViewProxy)
+                    }
+                    
+                }
+//                .navigationTitle("Zen")
             }
         }
     }
@@ -188,73 +172,95 @@ struct DetailView: View {
         if message.isEmpty {
             return
         }
-        
+        print(message)
+        print(selectedChatModel)
         sendMessage(message, selectedChatModel)
         inputText = ""
         
-//        if let lastMessage = conversation.messages.last {
-//            scrollViewProxy.scrollTo(lastMessage.id, anchor: .bottom)
-//        }
     }
 }
 
-//struct ChatBubble: View {
-//    let message: Message
-//
-//    private var assistantBackgroundColor: Color {
-//        #if os(iOS)
-//        return Color(uiColor: UIColor.systemGray5)
-//        #elseif os(macOS)
-//        return Color(nsColor: NSColor.lightGray)
-//        #endif
-//    }
-//
-//    private var userForegroundColor: Color {
-//        #if os(iOS)
-//        return Color(uiColor: .white)
-//        #elseif os(macOS)
-//        return Color(nsColor: NSColor.white)
-//        #endif
-//    }
-//
-//    private var userBackgroundColor: Color {
-//        #if os(iOS)
-//        return Color(uiColor: .systemBlue)
-//        #elseif os(macOS)
-//        return Color(nsColor: NSColor.systemBlue)
-//        #endif
-//    }
-//
-//    var body: some View {
-//        HStack {
-//            switch message.role {
-//            case .assistant:
-//                Text(message.content)
-//                    .padding(.horizontal, 16)
-//                    .padding(.vertical, 12)
-//                    .background(assistantBackgroundColor)
-//                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-//                Spacer(minLength: 24)
-//            case .user:
-//                Spacer(minLength: 24)
-//                Text(message.content)
-//                    .padding(.horizontal, 16)
-//                    .padding(.vertical, 12)
-//                    .foregroundColor(userForegroundColor)
-//                    .background(userBackgroundColor)
-//                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-//            case .function:
-//              Text(message.content)
-//                  .font(.footnote.monospaced())
-//                  .padding(.horizontal, 16)
-//                  .padding(.vertical, 12)
-//                  .background(assistantBackgroundColor)
-//                  .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-//              Spacer(minLength: 24)
-//            case .system:
-//                EmptyView()
-//            }
-//        }
+struct ChatBubble: View {
+    let message: Message
+
+    private var assistantBackgroundColor: Color {
+        #if os(iOS)
+        return Color(uiColor: UIColor.systemGray5)
+        #elseif os(macOS)
+        return Color(nsColor: NSColor.lightGray)
+        #endif
+    }
+
+    private var userForegroundColor: Color {
+        #if os(iOS)
+        return Color(uiColor: .white)
+        #elseif os(macOS)
+        return Color(nsColor: NSColor.white)
+        #endif
+    }
+
+    private var userBackgroundColor: Color {
+        #if os(iOS)
+        return Color(uiColor: .systemBlue)
+        #elseif os(macOS)
+        return Color(nsColor: NSColor.systemBlue)
+        #endif
+    }
+
+    var body: some View {
+        HStack {
+            switch message.role {
+            case .assistant:
+                Text(message.content)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .background(assistantBackgroundColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                Spacer(minLength: 24)
+            case .user:
+                Spacer(minLength: 24)
+                Text(message.content)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 12)
+                    .foregroundColor(userForegroundColor)
+                    .background(userBackgroundColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            case .function:
+              Text(message.content)
+                  .font(.footnote.monospaced())
+                  .padding(.horizontal, 16)
+                  .padding(.vertical, 12)
+                  .background(assistantBackgroundColor)
+                  .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+              Spacer(minLength: 24)
+            case .system:
+                EmptyView()
+            }
+        }
+    }
+}
+
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(
+//            conversation: Conversation(
+//                id: "1",
+//                messages: [
+//                    Message(id: "1", role: .assistant, content: "Hello, how can I help you today?", createdAt: Date(timeIntervalSinceReferenceDate: 0)),
+//                    Message(id: "2", role: .user, content: "I need help with my subscription.", createdAt: Date(timeIntervalSinceReferenceDate: 100)),
+//                    Message(id: "3", role: .assistant, content: "Sure, what seems to be the problem with your subscription?", createdAt: Date(timeIntervalSinceReferenceDate: 200)),
+//                    Message(id: "4", role: .function, content:
+//                              """
+//                              get_current_weather({
+//                                "location": "Glasgow, Scotland",
+//                                "format": "celsius"
+//                              })
+//                              """, createdAt: Date(timeIntervalSinceReferenceDate: 200))
+//                ]
+//            ),
+//            error: nil,
+//            sendMessage: { _, _ in }
+//        )
 //    }
 //}
 
@@ -264,21 +270,9 @@ struct DetailView_Previews: PreviewProvider {
             conversation: Conversation(
                 id: "1",
                 messages: [
-                    Message(id: "1", role: .assistant, content: "Hello, how can I help you today?", createdAt: Date(timeIntervalSinceReferenceDate: 0)),
-                    Message(id: "2", role: .user, content: "I need help with my subscription.", createdAt: Date(timeIntervalSinceReferenceDate: 100)),
-                    Message(id: "3", role: .assistant, content: "Sure, what seems to be the problem with your subscription?", createdAt: Date(timeIntervalSinceReferenceDate: 200)),
-                    Message(id: "4", role: .function, content:
-                              """
-                              get_current_weather({
-                                "location": "Glasgow, Scotland",
-                                "format": "celsius"
-                              })
-                              """, createdAt: Date(timeIntervalSinceReferenceDate: 200))
+                    Message(id: "1", role: .assistant, content: "Hello, how can I help you today?", createdAt: Date(timeIntervalSinceReferenceDate: 0))
                 ]
-            ),
-            error: nil,
-            sendMessage: { _, _ in }
+            ), error: nil, sendMessage: { _, _ in }
         )
     }
 }
-

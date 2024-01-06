@@ -52,6 +52,11 @@ public final class ChatStore: ObservableObject {
         conversations.removeAll(where: { $0.id == conversationId })
     }
     
+    // MARK: - Update OpenAI Client
+    func updateClient(_ newClient: OpenAIProtocol) {
+        self.openAIClient = newClient
+    }
+    
     @MainActor
     func sendMessage(
         _ message: Message,

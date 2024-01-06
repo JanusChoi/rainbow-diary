@@ -18,10 +18,10 @@ struct ListView: View {
             selection: $selectedConversationId
         ) { $conversation in
             Text(
-                conversation.messages.last?.content ?? "New Conversation"
+                conversation.messages.last?.content ?? "New Session"
             )
             .lineLimit(2)
         }
-        .navigationTitle("Conversations")
+        .navigationTitle("Sessions")
     }
 }

@@ -6,27 +6,62 @@
 //
 
 import SwiftUI
+import OpenAI
+import Speech
 
 @main
 struct rainbow_dairyApp: App {
+    @StateObject var chatStore: ChatStore
     @State private var hasCompletedOnboarding: Bool = UserDefaults.standard.string(forKey: "diaryUserId") != nil
-    // 检查用户是否已经完成了引导流程
-//    var hasCompletedOnboarding: Bool {
-//        UserDefaults.standard.string(forKey: "diaryUserId") != nil
-//    }
+    @State private var hasInputKey: Bool = UserDefaults.standard.string(forKey: "apiKey") != nil
+    @State var apiKey = UserDefaults.standard.string(forKey: "apiKey")
     
+    @Environment(\.idProviderValue) var idProvider
+    @Environment(\.dateProviderValue) var dateProvider
+
     var messageService = MessageService()
+    
+    init() {
+        let apiKeyUnwrapped = UserDefaults.standard.string(forKey: "apiKey") ?? ""
+        print("Check apiKey:", apiKeyUnwrapped)
+        let client = OpenAI(apiToken: apiKeyUnwrapped)
+        _chatStore = StateObject(
+            wrappedValue: ChatStore(
+                openAIClient: client,
+                idProvider: { UUID().uuidString }
+            )
+        )
+        requestSpeechAuthorization()
+    }
 
     var body: some Scene {
         WindowGroup {
-            if hasCompletedOnboarding {
+            if hasCompletedOnboarding && hasInputKey {
                 // 如果用户已完成引导，显示主内容视图
-                ContentView()
+                ContentView(chatStore: chatStore)
                     .environmentObject(messageService)
             } else {
                 // 如果用户未完成引导，显示引导视图
-                OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding, dataService: DataStorageService.shared)
+                OnboardingView(chatStore: chatStore, hasCompletedOnboarding: $hasCompletedOnboarding, dataService: DataStorageService.shared)
                     .environmentObject(messageService)
+            }
+        }
+    }
+    
+    private func requestSpeechAuthorization() {
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            // Main thread handle UI
+            DispatchQueue.main.async {
+                switch authStatus {
+                case .authorized:
+                    // auth confirmed
+                    break
+                case .denied, .restricted, .notDetermined:
+                    // auth not confirmed
+                    break
+                @unknown default:
+                    break
+                }
             }
         }
     }

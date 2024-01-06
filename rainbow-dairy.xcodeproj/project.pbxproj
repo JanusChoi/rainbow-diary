@@ -603,6 +603,8 @@
 				DEVELOPMENT_TEAM = L9YYJSZ682;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use speech recognition to convert your speech to text for convenient input.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We use speech recognition to convert your speech to text for convenient input.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -632,6 +634,8 @@
 				DEVELOPMENT_TEAM = L9YYJSZ682;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We use speech recognition to convert your speech to text for convenient input.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "We use speech recognition to convert your speech to text for convenient input.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

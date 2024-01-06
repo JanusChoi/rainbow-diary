@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import OpenAI
 
 struct OnboardingView: View {
+    @StateObject var chatStore: ChatStore
     @Binding var hasCompletedOnboarding: Bool
     @State private var openaiKey: String = ""
     @State private var username: String = ""
@@ -24,7 +26,9 @@ struct OnboardingView: View {
     
     var body: some View {
         if isOnboardingComplete {
-            TodayView()
+            ContentView(
+                chatStore: chatStore
+            )
         } else {
             VStack {
                 Group {
@@ -92,7 +96,12 @@ struct OnboardingView: View {
     private func createUserAndCompleteOnboarding() {
         let newUser = dataService.createUser(username: username, createdAt: Date(), openaiKey: openaiKey)
         UserDefaults.standard.set(newUser.id?.uuidString, forKey: "diaryUserId")
+        UserDefaults.standard.set(openaiKey, forKey: "apiKey")
+        let client = OpenAI(apiToken: openaiKey)
+        chatStore.updateClient(client)
+        
         hasCompletedOnboarding = true
+        isOnboardingComplete = true
     }
     
     // Next Step Logic
@@ -107,8 +116,8 @@ struct OnboardingView: View {
     }
 }
 
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView(hasCompletedOnboarding: .constant(false), dataService: DataStorageService.shared)
-    }
-}
+//struct OnboardingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnboardingView(hasCompletedOnboarding: .constant(false), dataService: DataStorageService.shared)
+//    }
+//}
