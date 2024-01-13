@@ -20,6 +20,8 @@ struct TodayView: View {
     @State private var isEditorExpanded: Bool = false
     @EnvironmentObject var messageService: MessageService
     
+    let dataService: DataStorageService = DataStorageService.shared // 获取 DataStorageService 实例
+    
     public init(store: ChatStore) {
         self.store = store
     }
@@ -54,7 +56,7 @@ struct TodayView: View {
         } detail: {
             if let conversation = store.selectedConversation {
                 DetailView(
-                    conversation: conversation,
+                    dataService: dataService, conversation: conversation,
                     error: store.conversationErrors[conversation.id],
                     sendMessage: { message, selectedModel in
                         Task {

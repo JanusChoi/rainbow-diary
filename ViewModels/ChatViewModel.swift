@@ -9,8 +9,10 @@ import Foundation
 
 class EntryViewModel: ObservableObject {
     let dataService: DataStorageService
+    var conversation: Conversation
 
-    init(dataService: DataStorageService = DataStorageService.shared) {
+    init(conversation: Conversation, dataService: DataStorageService = DataStorageService.shared) {
+        self.conversation = conversation
         self.dataService = dataService
     }
     
@@ -19,12 +21,8 @@ class EntryViewModel: ObservableObject {
             return
         }
         
-        // 假设当前用户和心情已经被定义
-//        let user = dataService.fetchUser(byId: UUID()) // 获取或定义用户
-//        let mood = "Happy" // 获取或定义心情
-
         // 创建和保存新的Entry实体
-        _ = dataService.createEntry(text: text, createdAt: date, user: user)
+        dataService.createEntry(from: conversation)
     }
 }
 

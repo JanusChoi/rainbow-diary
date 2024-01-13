@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct PersonView: View {
     @State private var openaiKey: String = ""
     var body: some View {
         VStack {
@@ -30,8 +30,8 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        PersonView()
     }
 }

@@ -7,6 +7,7 @@
 
 import CoreData
 import SwiftUI
+import OpenAI
 
 class DataStorageService {
     
@@ -99,24 +100,22 @@ class DataStorageService {
     // MARK: - Entry Entity
     
     // 创建一个新的日记条目
-    func createEntry(text: String, createdAt: Date, user: DiaryUser, mood: Mood? = nil) -> Entry {
+    func createEntry(from conversation: Conversation) {
         let context = persistentContainer.viewContext
         let entry = Entry(context: context)
         entry.id = UUID()
-        entry.text = text
-        entry.createdAt = createdAt
-        entry.user = user
-        entry.mood = mood
+        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
+        entry.createdAt = Date()
+        
         saveContext()
-        return entry
     }
     
     // 根据ID获取日记条目
-    func fetchEntry(byId id: UUID) -> [Entry]? {
+    func fetchEntry(byId id: UUID) -> Entry? {
         let context = persistentContainer.viewContext
         let request: NSFetchRequest<Entry> = Entry.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        return try? context.fetch(request)
+        return try? context.fetch(request).first
     }
     
     // 根据日期获取日记条目
@@ -137,8 +136,9 @@ class DataStorageService {
 
     
     // 更新日记条目
-    func updateEntry(entry: Entry, withNewText text: String) {
-        entry.text = text
+    func updateEntry(_ entry: Entry, with conversation: Conversation) {
+        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
+        entry.updatedAt = Date()
         saveContext()
     }
     
@@ -163,4 +163,16 @@ class DataStorageService {
     
     // MARK: - GeneratedImage Entity
     // 实现GeneratedImage实体的CRUD方法...
+}
+
+class RoleValueTransformer: ValueTransformer {
+    override func transformedValue(_ value: Any?) -> Any? {
+        guard let role = value as? Chat.Role else { return nil }
+        return role.rawValue
+    }
+
+    override func reverseTransformedValue(_ value: Any?) -> Any? {
+        guard let roleValue = value as? String else { return nil }
+        return Chat.Role(rawValue: roleValue)
+    }
 }

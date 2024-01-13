@@ -32,6 +32,8 @@ struct rainbow_dairyApp: App {
             )
         )
         requestSpeechAuthorization()
+        // 注册转换器
+        ValueTransformer.setValueTransformer(RoleValueTransformer(), forName: NSValueTransformerName("Chat.Role"))
     }
 
     var body: some Scene {

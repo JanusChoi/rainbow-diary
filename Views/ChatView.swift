@@ -13,6 +13,8 @@ public struct ChatView: View {
     
     @Environment(\.dateProviderValue) var dateProvider
     @Environment(\.idProviderValue) var idProvider
+    
+    let dataService: DataStorageService = DataStorageService.shared // 获取 DataStorageService 实例
 
     public init(store: ChatStore) {
         self.store = store
@@ -44,7 +46,7 @@ public struct ChatView: View {
         } detail: {
             if let conversation = store.selectedConversation {
                 DetailView(
-                    conversation: conversation,
+                    dataService: dataService, conversation: conversation,
                     error: store.conversationErrors[conversation.id],
                     sendMessage: { message, selectedModel in
                         Task {

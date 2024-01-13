@@ -19,10 +19,12 @@ struct DetailView: View {
     @State private var showsModelSelectionSheet = false
     @State private var selectedChatModel: Model = .gpt3_5Turbo_16k_0613
     @State private var isEditorExpanded: Bool = false
-
+//    @EnvironmentObject var dataService: DataStorageService
+    var dataService: DataStorageService
+    
     private let availableChatModels: [Model] = [.gpt3_5Turbo_16k_0613, .gpt4_0613]
-
-    let conversation: Conversation
+    var conversation: Conversation
+    
     let error: Error?
     let sendMessage: (String, Model) -> Void
 
@@ -94,8 +96,10 @@ struct DetailView: View {
                     }
                     
                 }
-//                .navigationTitle("Zen")
             }
+        }
+        .onDisappear() {
+            saveConversationToEntry(conversation)
         }
     }
 
@@ -178,6 +182,15 @@ struct DetailView: View {
         inputText = ""
         
     }
+    
+    private func saveConversationToEntry(_ conversation: Conversation) {
+        if let conversationUUID = UUID(uuidString: conversation.id),
+           let existingEntry = dataService.fetchEntry(byId: conversationUUID) {
+            dataService.updateEntry(existingEntry, with: conversation)
+        } else {
+            dataService.createEntry(from: conversation)
+        }
+    }
 }
 
 struct ChatBubble: View {
@@ -237,42 +250,5 @@ struct ChatBubble: View {
                 EmptyView()
             }
         }
-    }
-}
-
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(
-//            conversation: Conversation(
-//                id: "1",
-//                messages: [
-//                    Message(id: "1", role: .assistant, content: "Hello, how can I help you today?", createdAt: Date(timeIntervalSinceReferenceDate: 0)),
-//                    Message(id: "2", role: .user, content: "I need help with my subscription.", createdAt: Date(timeIntervalSinceReferenceDate: 100)),
-//                    Message(id: "3", role: .assistant, content: "Sure, what seems to be the problem with your subscription?", createdAt: Date(timeIntervalSinceReferenceDate: 200)),
-//                    Message(id: "4", role: .function, content:
-//                              """
-//                              get_current_weather({
-//                                "location": "Glasgow, Scotland",
-//                                "format": "celsius"
-//                              })
-//                              """, createdAt: Date(timeIntervalSinceReferenceDate: 200))
-//                ]
-//            ),
-//            error: nil,
-//            sendMessage: { _, _ in }
-//        )
-//    }
-//}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(
-            conversation: Conversation(
-                id: "1",
-                messages: [
-                    Message(id: "1", role: .assistant, content: "Hello, how can I help you today?", createdAt: Date(timeIntervalSinceReferenceDate: 0))
-                ]
-            ), error: nil, sendMessage: { _, _ in }
-        )
     }
 }

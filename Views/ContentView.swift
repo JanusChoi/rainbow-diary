@@ -30,6 +30,11 @@ struct ContentView: View {
                         .tabItem {
                             Label("Insight", systemImage: "eye")
                         }
+                    
+                    PersonView()
+                        .tabItem {
+                            Label("My", systemImage: "person")
+                        }
                 }
             }
             .background(Color(.systemBackground))
