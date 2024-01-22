@@ -25,10 +25,12 @@ struct rainbow_dairyApp: App {
         let apiKeyUnwrapped = UserDefaults.standard.string(forKey: "apiKey") ?? ""
         print("Check apiKey:", apiKeyUnwrapped)
         let client = OpenAI(apiToken: apiKeyUnwrapped)
+        let dataServiceInstance = DataStorageService.shared
         _chatStore = StateObject(
             wrappedValue: ChatStore(
                 openAIClient: client,
-                idProvider: { UUID().uuidString }
+                idProvider: { UUID().uuidString },
+                dataService: dataServiceInstance
             )
         )
         requestSpeechAuthorization()

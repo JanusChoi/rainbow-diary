@@ -30,12 +30,8 @@ struct TodayView: View {
         NavigationSplitView {
             ListView(
                 conversations: $store.conversations,
-                selectedConversationId: Binding<Conversation.ID?>(
-                    get: {
-                        store.selectedConversationID
-                    }, set: { newId in
-                        store.selectConversation(newId)
-                    })
+                selectedConversationId: $store.selectedConversationID,
+                store: store
             )
             .toolbar {
                 ToolbarItem(
@@ -53,30 +49,48 @@ struct TodayView: View {
                     }
                 }
             }
+            .navigationDestination(for: String.self) { conversationId in
+                Text("Navigating to conversation with ID: \(conversationId)")
+                detailViewFor(conversationId: conversationId)
+            }
         } detail: {
-            if let conversation = store.selectedConversation {
-                DetailView(
-                    dataService: dataService, conversation: conversation,
-                    error: store.conversationErrors[conversation.id],
-                    sendMessage: { message, selectedModel in
-                        Task {
-                            await store.sendMessage(
-                                Message(
-                                    id: idProvider(),
-                                    role: .user,
-                                    content: message,
-                                    createdAt: dateProvider()
-                                ),
-                                conversationId: conversation.id,
-                                model: selectedModel
-                            )
-                        }
-                    }
-                )
+            if let conversationId = store.selectedConversationID,
+               let conversation = store.conversations.first(where: { $0.id == conversationId }) {
+                Text("DetailView for selected conversation with ID: \(conversation.id)")
+                detailViewFor(conversationId: conversation.id)
             }
         }
     }
     
+    @ViewBuilder
+    private func detailViewFor(conversationId: String) -> some View {
+        // 使用集合来查找对应的 Conversation
+        Text("Constructing DetailView for conversation with ID: \(conversationId)")
+        if let conversation = store.conversations.first(where: { $0.id == conversationId }) {
+            DetailView(
+                dataService: dataService,
+                store: store, conversation: conversation,
+                error: store.conversationErrors[conversation.id],
+                sendMessage: { message, selectedModel in
+                    Task {
+                        await store.sendMessage(
+                            Message(
+                                id: idProvider(),
+                                role: .user,
+                                content: message,
+                                createdAt: dateProvider()
+                            ),
+                            conversationId: conversation.id,
+                            model: selectedModel
+                        )
+                    }
+                }
+            )
+        } else {
+            Text("Conversation not found")
+        }
+    }
+        
     func handleDragGesture(_ gesture: DragGesture.Value) {
         print("Drag translation: \(gesture.translation)")
         let dragThreshold: CGFloat = -10 // 调整此值以改变灵敏度
@@ -118,10 +132,3 @@ extension CGFloat {
         return Swift.abs(self)
     }
 }
-
-
-//struct TodayView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TodayView().environmentObject(MessageService())
-//    }
-//}

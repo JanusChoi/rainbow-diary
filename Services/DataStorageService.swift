@@ -9,12 +9,14 @@ import CoreData
 import SwiftUI
 import OpenAI
 
-class DataStorageService {
+public class DataStorageService {
     
     // MARK: - Core Data stack
     
     // 创建一个静态共享实例，使得这个服务可以在应用中被全局访问。
     static let shared = DataStorageService()
+//    private var store: ChatStore
+//    private var imageStore: ImageStore
     
     // 私有初始化方法，防止外部创建多个实例。
     private init() {}
@@ -105,7 +107,8 @@ class DataStorageService {
         let entry = Entry(context: context)
         entry.id = UUID()
         entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
-        entry.createdAt = Date()
+        entry.createdAt = conversation.createdAt
+        entry.updatedAt = conversation.updatedAt
         
         saveContext()
     }
@@ -122,23 +125,23 @@ class DataStorageService {
     func fetchEntriesForToday(user: DiaryUser) -> [Entry] {
         let todayStart = Calendar.current.startOfDay(for: Date())
         let todayEnd = Calendar.current.date(byAdding: .day, value: 1, to: todayStart)!
-
+        
         let context = persistentContainer.viewContext
         let request: NSFetchRequest<Entry> = Entry.fetchRequest()
-
+        
         // Create a predicate to filter entries by today's date and user ID
         let datePredicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", todayStart as NSDate, todayEnd as NSDate)
         let userPredicate = NSPredicate(format: "user == %@", user)
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, userPredicate])
-
+        
         return (try? context.fetch(request)) ?? []
     }
-
+    
     
     // 更新日记条目
     func updateEntry(_ entry: Entry, with conversation: Conversation) {
         entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
-        entry.updatedAt = Date()
+        entry.updatedAt = conversation.updatedAt
         saveContext()
     }
     
@@ -150,10 +153,42 @@ class DataStorageService {
     }
     
     // MARK: - DaySummary Entity
-    // 实现DaySummary实体的CRUD方法...
+    func saveKeywordsToDaySummary(_ keywords: [String], summary: String, for user: DiaryUser) {
+        let context = persistentContainer.viewContext
+        let daySummary = DaySummary(context: context)
+        daySummary.user = user
+        daySummary.createdAt = Date()
+        daySummary.keywords = keywords.joined(separator: ", ")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error: \(error)")
+        }
+    }
     
-    // MARK: - Mood Entity
-    // 实现Mood实体的CRUD方法...
+    func saveImageToFileSystem(from imageUrl: URL) async -> String {
+        // 使用 URLSession 下载图片
+        do {
+            let (data, _) = try await URLSession.shared.data(from: imageUrl)
+            if let image = UIImage(data: data) {
+                // 获取沙盒目录
+                let fileManager = FileManager.default
+                let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+                let fileName = UUID().uuidString + ".jpg" // 创建一个唯一的文件名
+                let fileURL = documentsDirectory.appendingPathComponent(fileName)
+                
+                // 将图片数据保存到文件
+                if let imageData = image.jpegData(compressionQuality: 1.0) {
+                    try imageData.write(to: fileURL)
+                    return fileURL.path // 返回文件路径
+                }
+            }
+        } catch {
+            print("Error saving image to file system: \(error)")
+        }
+        return "" // 错误情况下返回空字符串或适当的错误处理
+    }
     
     // MARK: - MoodSummary Entity
     // 实现MoodSummary实体的CRUD方法...
@@ -170,7 +205,7 @@ class RoleValueTransformer: ValueTransformer {
         guard let role = value as? Chat.Role else { return nil }
         return role.rawValue
     }
-
+    
     override func reverseTransformedValue(_ value: Any?) -> Any? {
         guard let roleValue = value as? String else { return nil }
         return Chat.Role(rawValue: roleValue)

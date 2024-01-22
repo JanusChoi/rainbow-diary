@@ -8,15 +8,21 @@
 import Foundation
 
 struct Conversation {
-    init(id: String, messages: [Message] = []) {
+    let id: String
+    var messages: [Message]
+    var createdAt: Date
+    var updatedAt: Date
+    
+    init(id: String, messages: [Message] = [], createdAt: Date=Date(), updatedAt: Date=Date()) {
         self.id = id
         self.messages = messages
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
     
     typealias ID = String
     
-    let id: String
-    var messages: [Message]
+    
 }
 
 extension Conversation: Equatable, Identifiable {}

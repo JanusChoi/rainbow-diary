@@ -21,6 +21,7 @@ struct DetailView: View {
     @State private var isEditorExpanded: Bool = false
 //    @EnvironmentObject var dataService: DataStorageService
     var dataService: DataStorageService
+    var store: ChatStore
     
     private let availableChatModels: [Model] = [.gpt3_5Turbo_16k_0613, .gpt4_0613]
     var conversation: Conversation
@@ -99,7 +100,7 @@ struct DetailView: View {
             }
         }
         .onDisappear() {
-            saveConversationToEntry(conversation)
+            store.saveConversationToEntry(conversation)
         }
     }
 
@@ -181,15 +182,6 @@ struct DetailView: View {
         sendMessage(message, selectedChatModel)
         inputText = ""
         
-    }
-    
-    private func saveConversationToEntry(_ conversation: Conversation) {
-        if let conversationUUID = UUID(uuidString: conversation.id),
-           let existingEntry = dataService.fetchEntry(byId: conversationUUID) {
-            dataService.updateEntry(existingEntry, with: conversation)
-        } else {
-            dataService.createEntry(from: conversation)
-        }
     }
 }
 

@@ -3,6 +3,8 @@
     <entity name="DaySummary" representedClassName="DaySummary" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="keywords" optional="YES" attributeType="String"/>
         <attribute name="summaryText" optional="YES" attributeType="String"/>
         <relationship name="entry" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Entry" inverseName="daySummary" inverseEntity="Entry"/>
         <relationship name="moodSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoodSummary" inverseName="daySummary" inverseEntity="MoodSummary"/>
