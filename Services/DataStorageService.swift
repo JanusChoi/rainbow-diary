@@ -15,8 +15,6 @@ public class DataStorageService {
     
     // 创建一个静态共享实例，使得这个服务可以在应用中被全局访问。
     static let shared = DataStorageService()
-//    private var store: ChatStore
-//    private var imageStore: ImageStore
     
     // 私有初始化方法，防止外部创建多个实例。
     private init() {}
@@ -101,49 +99,43 @@ public class DataStorageService {
     
     // MARK: - Entry Entity
     
+    func fetchAllEntries(for date: Date? = nil) -> [Entry] {
+        let context = persistentContainer.viewContext
+        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        if let date = date {
+            let startOfDay = Calendar.current.startOfDay(for: date)
+            let endOfDay = Calendar.current.date(byAdding: .day, value: 1, to: startOfDay)!
+            let datePredicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", startOfDay as NSDate, endOfDay as NSDate)
+            request.predicate = datePredicate
+        }
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching entries: \(error)")
+            return []
+        }
+    }
+    
     // 创建一个新的日记条目
-    func createEntry(from conversation: Conversation) {
-        let context = persistentContainer.viewContext
-        let entry = Entry(context: context)
-        entry.id = UUID()
-        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
-        entry.createdAt = conversation.createdAt
-        entry.updatedAt = conversation.updatedAt
-        
-        saveContext()
-    }
-    
-    // 根据ID获取日记条目
-    func fetchEntry(byId id: UUID) -> Entry? {
-        let context = persistentContainer.viewContext
-        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-        return try? context.fetch(request).first
-    }
-    
-    // 根据日期获取日记条目
-    func fetchEntriesForToday(user: DiaryUser) -> [Entry] {
-        let todayStart = Calendar.current.startOfDay(for: Date())
-        let todayEnd = Calendar.current.date(byAdding: .day, value: 1, to: todayStart)!
-        
-        let context = persistentContainer.viewContext
-        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
-        
-        // Create a predicate to filter entries by today's date and user ID
-        let datePredicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", todayStart as NSDate, todayEnd as NSDate)
-        let userPredicate = NSPredicate(format: "user == %@", user)
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, userPredicate])
-        
-        return (try? context.fetch(request)) ?? []
-    }
-    
+//    func createEntry(from conversation: Conversation) {
+//        let context = persistentContainer.viewContext
+//        let entry = Entry(context: context)
+//        entry.id = UUID()
+//        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
+//        entry.createdAt = conversation.createdAt
+//        entry.updatedAt = conversation.updatedAt
+//        
+//        saveContext()
+//    }
     
     // 更新日记条目
-    func updateEntry(_ entry: Entry, with conversation: Conversation) {
-        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
-        entry.updatedAt = conversation.updatedAt
-        saveContext()
-    }
+//    func updateEntry(_ entry: Entry, with conversation: Conversation) {
+//        entry.text = conversation.messages.map { $0.content }.joined(separator: "\n")
+//        entry.updatedAt = conversation.updatedAt
+//        saveContext()
+//    }
     
     // 删除日记条目
     func deleteEntry(_ entry: Entry) {
@@ -152,13 +144,73 @@ public class DataStorageService {
         saveContext()
     }
     
+    // 对话的创建与更新
+    func createOrUpdateEntry(from conversation: Conversation, isUpdate: Bool = false) {
+        let context = persistentContainer.viewContext
+        let entry = isUpdate ? fetchEntry(byId: conversation.id) ?? Entry(context: context) : Entry(context: context)
+
+        entry.id = UUID(uuidString: conversation.id) ?? UUID()
+        entry.createdAt = conversation.createdAt
+        entry.updatedAt = conversation.updatedAt
+        
+        // 清除旧的消息（如果是更新操作）
+        if isUpdate, let oldMessages = entry.messages as? Set<EntryMessage> {
+            for message in oldMessages {
+                context.delete(message)
+//                entry.addToMessages(message)
+            }
+        }
+        
+        // 更新或创建新的 EntryMessage 实例
+        let newMessages = conversation.messages.enumerated().map { (index, message) in
+            let entryMessage = EntryMessage(context: context)
+            entryMessage.id = message.id
+            entryMessage.role = message.role.rawValue
+            entryMessage.content = message.content
+            entryMessage.createdAt = message.createdAt
+            entryMessage.sequence = Int16(index)
+            return entryMessage
+        }
+        
+        // 添加新的消息到 Entry
+        entry.addToMessages(NSSet(array: newMessages))
+        
+        saveContext()
+    }
+
+    
+    // 根据ID获取日记条目
+    func fetchEntry(byId id: String) -> Entry? {
+        let context = persistentContainer.viewContext
+        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        return try? context.fetch(request).first
+    }
+    
+    // 根据日期获取日记条目
+    func fetchEntriesForToday() -> [Entry] {
+        let todayStart = Calendar.current.startOfDay(for: Date())
+        let todayEnd = Calendar.current.date(byAdding: .day, value: 1, to: todayStart)!
+        
+        let context = persistentContainer.viewContext
+        let request: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        // Create a predicate to filter entries by today's date and user ID
+        let datePredicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt < %@)", todayStart as NSDate, todayEnd as NSDate)
+//        let userPredicate = NSPredicate(format: "user == %@", user)
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate])
+        
+        return (try? context.fetch(request)) ?? []
+    }
+    
     // MARK: - DaySummary Entity
-    func saveKeywordsToDaySummary(_ keywords: [String], summary: String, for user: DiaryUser) {
+    func saveKeywordsToDaySummary(_ keywords: [String], summary: String) {
         let context = persistentContainer.viewContext
         let daySummary = DaySummary(context: context)
-        daySummary.user = user
+        daySummary.id = UUID()
         daySummary.createdAt = Date()
         daySummary.keywords = keywords.joined(separator: ", ")
+        daySummary.summaryText = summary
         
         do {
             try context.save()
@@ -188,6 +240,22 @@ public class DataStorageService {
             print("Error saving image to file system: \(error)")
         }
         return "" // 错误情况下返回空字符串或适当的错误处理
+    }
+    
+    func fetchDaySummaries() -> [DaySummary] {
+        let context = persistentContainer.viewContext
+        let request: NSFetchRequest<DaySummary> = DaySummary.fetchRequest()
+        
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        request.sortDescriptors = [sortDescriptor]
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Error fetching day summaries: \(error)")
+            return []
+        }
+        
     }
     
     // MARK: - MoodSummary Entity

@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "043589CE-082D-4553-A3A2-F8E6B53C98E8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Views/TodayView.swift"
@@ -97,6 +97,1350 @@
             endingLineNumber = "41"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9AE7498-FCB7-4AF9-A59A-B3C4BB828F9A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/StoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "loadSummaryCards()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E9AE7498-FCB7-4AF9-A59A-B3C4BB828F9A - afbe39e527748959"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.StoryView.loadSummaryCards() async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "316">
+               </Location>
+               <Location
+                  uuid = "E9AE7498-FCB7-4AF9-A59A-B3C4BB828F9A - afbe39e527748938"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.StoryView.loadSummaryCards() async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "188">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00F45A1C-3D24-425E-AD0A-D6BBB01C5058"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/DataStorageService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "fetchDaySummaries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A314DC49-294C-4995-886E-90F913A20617"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "generateDaySummary(model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "generateDaySummary(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F - c7629c8bb52086ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F - b806c322cf694ac0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F - cefeae747af7c20a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "960">
+               </Location>
+               <Location
+                  uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F - cc1a0239bc7ab9ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "CE2D90AF-13E0-4A1C-BA54-724103CF099F - c7629c8bb5208608"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFFE6A29-CFCE-4C36-B871-7C1E03AAE272"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "generateDaySummary(model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFFE6A29-CFCE-4C36-B871-7C1E03AAE272 - c7629c8bb52087f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "EFFE6A29-CFCE-4C36-B871-7C1E03AAE272 - ad6a5da86eaf7c02"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "EFFE6A29-CFCE-4C36-B871-7C1E03AAE272 - b806c322cf694ae1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "EFFE6A29-CFCE-4C36-B871-7C1E03AAE272 - b806c322cf694bf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for rainbow_dairy.ChatStore.generateDaySummary(model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "107"
+                  endingLineNumber = "107"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4097577-9620-4B86-8C76-909E72696084"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "sendMessage(_:conversationId:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D4097577-9620-4B86-8C76-909E72696084 - a4a925522f16602f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ChatStore.sendMessage(_: rainbow_dairy.Message, conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "D4097577-9620-4B86-8C76-909E72696084 - aebbce6b46dc1def"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for rainbow_dairy.ChatStore.sendMessage(_: rainbow_dairy.Message, conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D4097577-9620-4B86-8C76-909E72696084 - f9c07ae92ba4ec71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.sendMessage(_: rainbow_dairy.Message, conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "D4097577-9620-4B86-8C76-909E72696084 - a4a925522f16604e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ChatStore.sendMessage(_: rainbow_dairy.Message, conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11381C2F-A98D-49D2-91BB-8124A50CC8F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "completeChat(conversationId:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "11381C2F-A98D-49D2-91BB-8124A50CC8F0 - 83c11242d252b40f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "3028">
+               </Location>
+               <Location
+                  uuid = "11381C2F-A98D-49D2-91BB-8124A50CC8F0 - 2e4f364087130ade"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "11381C2F-A98D-49D2-91BB-8124A50CC8F0 - 13ab0b7d426b600d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "11381C2F-A98D-49D2-91BB-8124A50CC8F0 - dbbe3ff38a68c60c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02E69C97-BB1C-47AC-BD46-9E6397679137"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "completeChat(conversationId:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02E69C97-BB1C-47AC-BD46-9E6397679137 - 13ab0b7d426b6281"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1816">
+               </Location>
+               <Location
+                  uuid = "02E69C97-BB1C-47AC-BD46-9E6397679137 - 13ab0b7d426b68b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "257"
+                  endingLineNumber = "257"
+                  offsetFromSymbolStart = "2252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "148A4C3D-196F-4F01-958A-49176D8B2134"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "sendPromptAndGetResponse(prompt:model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2D06E338-3AB9-4A87-85D6-AEB41DC3E4BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "sendPromptAndGetResponse(prompt:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2D06E338-3AB9-4A87-85D6-AEB41DC3E4BC - f286d48b937f2872"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.sendPromptAndGetResponse(prompt: Swift.String, model: Swift.String) async -&gt; Swift.String"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "2D06E338-3AB9-4A87-85D6-AEB41DC3E4BC - f286d48b937f2872"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.sendPromptAndGetResponse(prompt: Swift.String, model: Swift.String) async -&gt; Swift.String"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53EEC29E-C10E-4E98-ACA3-5FF1980B5A0B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "parseKeywords(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "53EEC29E-C10E-4E98-ACA3-5FF1980B5A0B - c6aee4e790ebf15b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.ChatStore.parseKeywords(from: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "53EEC29E-C10E-4E98-ACA3-5FF1980B5A0B - c6aee4e790ebf15b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.ChatStore.parseKeywords(from: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "620">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "901303D8-3A75-4133-BC42-BD107F31ADFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "901303D8-3A75-4133-BC42-BD107F31ADFC - 3dbc2c4da568c566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "901303D8-3A75-4133-BC42-BD107F31ADFC - 3dbc2c4da568c566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "901303D8-3A75-4133-BC42-BD107F31ADFC - 3dbc2c4da568c566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "320">
+               </Location>
+               <Location
+                  uuid = "901303D8-3A75-4133-BC42-BD107F31ADFC - 3dbc2c4da568c566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B680352D-878B-4C89-9982-5544955EC108"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/StoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "generateSummary()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B680352D-878B-4C89-9982-5544955EC108 - 96678080c8f46f4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "B680352D-878B-4C89-9982-5544955EC108 - 96678080c8f46f4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4EB3891-FCD2-44A6-B337-C48B53057FD9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/StoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "generateSummary()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B4EB3891-FCD2-44A6-B337-C48B53057FD9 - dcbea6e891f3a3d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  uuid = "B4EB3891-FCD2-44A6-B337-C48B53057FD9 - dfcbf3c4cc2ae7d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "B4EB3891-FCD2-44A6-B337-C48B53057FD9 - 434a5e2dfcce5a15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "B4EB3891-FCD2-44A6-B337-C48B53057FD9 - d1190c272a412bd0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7281D367-CA81-4B46-AED3-403072F2AE4E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Views/StoryView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "generateSummary()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7281D367-CA81-4B46-AED3-403072F2AE4E - d1190c272a412b31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "7281D367-CA81-4B46-AED3-403072F2AE4E - d1190c272a412b16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in rainbow_dairy.StoryView.generateSummary() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Views/StoryView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F6672D6-5E97-4760-A092-312FA394A44B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3F6672D6-5E97-4760-A092-312FA394A44B - 6c12d404f13a4bd6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "3F6672D6-5E97-4760-A092-312FA394A44B - 9b60dcc24ef7d3d2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "79CEAB4E-3109-4CDD-AD45-6EF5FD973560"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35FE1E01-BECE-40E9-BC90-003C99D66FE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA76596A-8BE2-4E8E-9626-C84601026EF7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA76596A-8BE2-4E8E-9626-C84601026EF7 - 3dbc2c4da568c310"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2916">
+               </Location>
+               <Location
+                  uuid = "FA76596A-8BE2-4E8E-9626-C84601026EF7 - 3dbc2c4da568c310"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "2708">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D129A0CD-D517-4569-9E6D-CE31DC1B8A3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ImageStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "generateSummaryCards(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D129A0CD-D517-4569-9E6D-CE31DC1B8A3F - 3dbc2c4da568c3b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "3036">
+               </Location>
+               <Location
+                  uuid = "D129A0CD-D517-4569-9E6D-CE31DC1B8A3F - 2de5d1a96cb6bb46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "D129A0CD-D517-4569-9E6D-CE31DC1B8A3F - 6c12d404f13a4bb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "D129A0CD-D517-4569-9E6D-CE31DC1B8A3F - 3dbc2c4da568c3b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ImageStore.generateSummaryCards(for: rainbow_dairy.DaySummary) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ImageStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "2824">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FAD11EF2-D6C7-44ED-96AA-61B246F64BBC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/DataStorageService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "createOrUpdateEntry(from:isUpdate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FAD11EF2-D6C7-44ED-96AA-61B246F64BBC - 5b49fdc078a990da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.DataStorageService.createOrUpdateEntry(from: rainbow_dairy.Conversation, isUpdate: Swift.Bool) -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Services/DataStorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "416">
+               </Location>
+               <Location
+                  uuid = "FAD11EF2-D6C7-44ED-96AA-61B246F64BBC - 5b49fdc078a997c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.DataStorageService.createOrUpdateEntry(from: rainbow_dairy.Conversation, isUpdate: Swift.Bool) -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Services/DataStorageService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "416">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "778EEB9E-50E7-4BD9-BB58-AE721680DAE6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "loadConversationsFromEntries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "778EEB9E-50E7-4BD9-BB58-AE721680DAE6 - 8ffb0357fc9f0314"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (rainbow_dairy.EntryMessage) -&gt; rainbow_dairy.Message in closure #1 (rainbow_dairy.Entry) -&gt; rainbow_dairy.Conversation in rainbow_dairy.ChatStore.loadConversationsFromEntries() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "1248">
+               </Location>
+               <Location
+                  uuid = "778EEB9E-50E7-4BD9-BB58-AE721680DAE6 - caa73cdb8801df80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.ChatStore.loadConversationsFromEntries() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "778EEB9E-50E7-4BD9-BB58-AE721680DAE6 - caa73cdb8801df80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "rainbow_dairy.ChatStore.loadConversationsFromEntries() -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "877583CC-FFD2-4781-8B0F-3EC33E4D983D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "completeChat(conversationId:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "877583CC-FFD2-4781-8B0F-3EC33E4D983D - 83c11242d252b449"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "716">
+               </Location>
+               <Location
+                  uuid = "877583CC-FFD2-4781-8B0F-3EC33E4D983D - 134b461430a31c92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (rainbow_dairy.Conversation) -&gt; Swift.Bool in rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A93F542-CC55-4BE7-8EDC-18E7AC90FD1A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "completeChat(conversationId:model:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "818DFBD7-FC61-45C9-B39A-AB94C931089E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Utilities/ChatStore.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
+            landmarkName = "completeChat(conversationId:model:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "818DFBD7-FC61-45C9-B39A-AB94C931089E - 13ab0b7d426b6e1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "1016">
+               </Location>
+               <Location
+                  uuid = "818DFBD7-FC61-45C9-B39A-AB94C931089E - 13ab0b7d426b6e7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for rainbow_dairy.ChatStore.completeChat(conversationId: Swift.String, model: Swift.String) async -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/code/rainbow-diary/rainbow-dairy/Utilities/ChatStore.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "1384">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C7075CB-6579-4583-B42E-3714D0134FCB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Public/Protocols/OpenAIProtocol+Async.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "chatsStream(query:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46B5A482-D903-49C0-916D-34E7C855403A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Private/StreamingSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "processJSON(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "46B5A482-D903-49C0-916D-34E7C855403A - 2d79a3444fbfd60d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenAI.StreamingSession.processJSON(from: Swift.String) -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Private/StreamingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "1472">
+               </Location>
+               <Location
+                  uuid = "46B5A482-D903-49C0-916D-34E7C855403A - cc567b6a3f9b65c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Int, Swift.String) -&gt; () in OpenAI.StreamingSession.processJSON(from: Swift.String) -&gt; ()"
+                  moduleName = "rainbow-dairy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/januswing/Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Private/StreamingSession.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A46322F3-7830-4948-973F-66C68A1EEFF3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Private/StreamingSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "urlSession(_:dataTask:didReceive:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD91122D-A9BD-465D-86B3-3470415C0113"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/rainbow-dairy-ejkyjbmjtgvvmccjfngxeewxcebu/SourcePackages/checkouts/OpenAI/Sources/OpenAI/Private/StreamingSession.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "processJSON(from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

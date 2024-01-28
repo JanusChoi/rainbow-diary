@@ -10,6 +10,8 @@ import OpenAI
 
 struct OnboardingView: View {
     @StateObject var chatStore: ChatStore
+    @StateObject var imageStore: ImageStore
+    
     @Binding var hasCompletedOnboarding: Bool
     @State private var openaiKey: String = ""
     @State private var username: String = ""
@@ -27,7 +29,8 @@ struct OnboardingView: View {
     var body: some View {
         if isOnboardingComplete {
             ContentView(
-                chatStore: chatStore
+                chatStore: chatStore,
+                imageStore: imageStore
             )
         } else {
             VStack {
@@ -43,7 +46,7 @@ struct OnboardingView: View {
                             destination: URL(string: "https://platform.openai.com/account/api-keys")!
                         )
                         .font(.caption)
-                        TextField("sk-XXXXXX", text: $openaiKey)
+                        SecureField("sk-XXXXXX", text: $openaiKey)
                             .multilineTextAlignment(.center)
                     }
                     if onboardingStep == 2 {

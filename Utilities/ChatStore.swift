@@ -48,6 +48,8 @@ public final class ChatStore: ObservableObject {
         conversations.append(conversation)
         print("Created new conversation with ID: \(conversation.id)")
         selectedConversationID = conversation.id // 设置新会话为当前选中的会话
+        
+        dataService.createOrUpdateEntry(from: conversation)
     }
     
     func updateConversation(id: Conversation.ID, with newMessage: Message) {
@@ -56,6 +58,10 @@ public final class ChatStore: ObservableObject {
             // 更新对话中的消息和更新时间
             conversations[index].messages.append(newMessage)
             conversations[index].updatedAt = Date()
+            
+            if dataService.fetchEntry(byId: id) != nil {
+                dataService.createOrUpdateEntry(from: conversations[index], isUpdate: true)
+            }
         }
     }
     
@@ -67,32 +73,82 @@ public final class ChatStore: ObservableObject {
     
     func deleteConversation(_ conversationId: Conversation.ID) {
         conversations.removeAll(where: { $0.id == conversationId })
+        
+        if let entry = dataService.fetchEntry(byId: conversationId) {
+            dataService.deleteEntry(entry)
+        }
+    }
+    
+    func loadConversationsFromEntries() {
+        let entries = dataService.fetchAllEntries()
+        // 设置默认日期
+        let defaultDate = DateFormatter().date(from: "2023-03-01") ?? Date()
+        // 将每个 Entry 转换为 Conversation
+        self.conversations = entries.map { entry in
+            // 转换消息字符串为 Message 数组
+//            let messages = (entry.messages as? Set<EntryMessage>)?.map { entryMessage in
+//                Message(
+//                    id: entryMessage.id ?? UUID().uuidString,
+//                    role: Chat.Role(rawValue: entryMessage.role ?? "") ?? .user,
+//                    content: entryMessage.content ?? "",
+//                    createdAt: entryMessage.createdAt ?? defaultDate
+//                )
+//            } ?? []
+//            // 假设 Entry 包含必要的信息来构建 Conversation
+            let messages = (entry.messages as? Set<EntryMessage>)?
+                .sorted(by: { $0.sequence < $1.sequence }) // 根据 sequence 排序
+                .map { entryMessage in
+                    Message(
+                        id: entryMessage.id ?? UUID().uuidString,
+                        role: Chat.Role(rawValue: entryMessage.role ?? "") ?? .user,
+                        content: entryMessage.content ?? "",
+                        createdAt: entryMessage.createdAt ?? Date()
+                    )
+                } ?? []
+            
+            return Conversation(
+                id: entry.id?.uuidString ?? UUID().uuidString, // 转换 UUID 为 String
+                messages: messages,
+                createdAt: entry.createdAt ?? defaultDate,
+                updatedAt: entry.updatedAt ?? defaultDate
+            )
+        }
     }
     
     // MARK: - Handle Events between Conversations and Entry
     
-    func saveConversationToEntry(_ conversation: Conversation) {
-        if let conversationUUID = UUID(uuidString: conversation.id),
-           let existingEntry = dataService.fetchEntry(byId: conversationUUID) {
-            dataService.updateEntry(existingEntry, with: conversation)
-        } else {
-            dataService.createEntry(from: conversation)
-        }
-    }
+//    func saveConversationToEntry(_ conversation: Conversation) {
+//        if let existingEntry = dataService.fetchEntry(byId: conversation.id) {
+//            dataService.updateEntry(existingEntry, with: conversation)
+//        } else {
+//            dataService.createEntry(from: conversation)
+//        }
+//    }
     
     // MARK: - Handle Summaries
     // MARK: - DaySummary Entity
     // 实现DaySummary实体的CRUD方法...
-    func generateDaySummary(for user: DiaryUser, conversationId: Conversation.ID, model: Model) async {
-        let entries = dataService.fetchEntriesForToday(user: user)
+    func generateDaySummary(model: Model) async {
+        print("Entering generateDaySummary")
+        let entries = dataService.fetchAllEntries(for: Date())
         
         // 将所有条目的内容合并为一个长字符串
-        let allEntriesContent = entries.map { $0.text ?? "" }.joined(separator: "\n")
+//        let allEntriesContent = entries.map { entry in
+//            let messages = (entry.messages as? Set<EntryMessage>)?.map {
+//                entryMessage in entryMessage.content
+//            }
+//        }
+        let allEntriesContent = entries.flatMap { entry -> [String] in
+                guard let entryMessages = entry.messages as? Set<EntryMessage> else {
+                    return []
+                }
+                return entryMessages.compactMap { $0.content }
+            }.joined(separator: "\n")
         
         // 构造 prompt，包括条目内容和请求关键词的指示
-        let prompt_keyword = "基于以下对话内容，请归纳总结提取关键词:\n\(allEntriesContent)，请注意只输出json格式如下{\"关键词1\",\"关键词2\",\"关键词3\"}"
+        let prompt_keyword = "基于以下对话内容，请归纳总结提取3个关键词:\n\(allEntriesContent)，请注意只输出json格式如下[\"关键词1\",\"关键词2\",\"关键词3\"]"
         
-        let response_keyword = await sendPromptAndGetResponse(prompt: prompt_keyword, conversationId: conversationId, model: model)
+        let response_keyword = await sendPromptAndGetResponse(prompt: prompt_keyword,  model: model)
         
         // 解析 response 来获取关键词
         guard let keywords = parseKeywords(from: response_keyword) else {
@@ -103,13 +159,13 @@ public final class ChatStore: ObservableObject {
         // 构造 prompt，包括条目内容和请求关键词的指示
         let prompt_summary = "基于以下对话内容，请归纳总结一段简洁的文字:\n\(allEntriesContent)"
         
-        let response_summary = await sendPromptAndGetResponse(prompt: prompt_summary, conversationId: conversationId, model: model)
+        let response_summary = await sendPromptAndGetResponse(prompt: prompt_summary, model: model)
         
         // 解析 response 来获取关键词
         let summary = response_summary
         
         // 将关键词保存到 DaySummary 实体中
-        dataService.saveKeywordsToDaySummary(keywords, summary: summary, for: user)
+        dataService.saveKeywordsToDaySummary(keywords, summary: summary)
     }
     
     func parseKeywords(from response: String) -> [String]? {
@@ -182,21 +238,22 @@ public final class ChatStore: ObservableObject {
                 )
             )
             
-            let functions = [weatherFunction, moodFunction]
+            _ = [weatherFunction, moodFunction]
             
             let chatsStream: AsyncThrowingStream<ChatStreamResult, Error> = openAIClient.chatsStream(
                 query: ChatQuery(
                     model: model,
                     messages: conversation.messages.map { message in
                         Chat(role: message.role, content: message.content)
-                    },
-                    functions: functions
+                    }//,
+//                    functions: functions
                 )
             )
             
             var functionCallName = ""
             var functionCallArguments = ""
             for try await partialChatResult in chatsStream {
+//                print("Received raw data: \(partialChatResult)")
                 for choice in partialChatResult.choices {
                     let existingMessages = conversations[conversationIndex].messages
                     // Function calls are also streamed, so we need to accumulate.
@@ -213,6 +270,7 @@ public final class ChatStore: ObservableObject {
                        finishReason == "function_call" {
                         messageText += "Function call: name=\(functionCallName) arguments=\(functionCallArguments)"
                     }
+//                    print("completeChat Receiving \(messageText)")
                     let message = Message(
                         id: partialChatResult.id,
                         role: choice.delta.role ?? .assistant,
@@ -234,7 +292,11 @@ public final class ChatStore: ObservableObject {
                     }
                 }
             }
+        } catch DecodingError.dataCorrupted(let context) {
+            print("JSON Decoding Error: \(context.debugDescription)")
+            // 可以添加更多处理逻辑
         } catch {
+            print("Error's occur: \(error)")
             conversationErrors[conversationId] = error
         }
     }
@@ -242,27 +304,25 @@ public final class ChatStore: ObservableObject {
     @MainActor
     func sendPromptAndGetResponse(
         prompt: String,
-        conversationId: Conversation.ID,
         model: Model
     ) async -> String {
-        let message = prompt
-        await sendMessage(
-            Message(
-                id: idProvider(),
-                role: .user,
-                content: prompt,
-                createdAt: Date()
-            ),
-            conversationId: conversationId,
-            model: model
+        // 构建请求所需的 ChatQuery
+        let query = ChatQuery(
+            model: model,
+            messages: [Chat(role: .user, content: prompt)] // 只包含一个用户消息
         )
         
-        // 假设最后一条消息包含了我们需要的回答
-        guard let conversationIndex = conversations.firstIndex(where: { $0.id == conversationId }),
-              let lastMessage = conversations[conversationIndex].messages.last else {
-            return ""
+        // 发起请求并处理响应
+        do {
+            let result = try await openAIClient.chats(query: query)
+            print("Received result: \(result)") // 打印收到的响应内容
+            let responseContent = result.choices.first?.message.content
+            print("Getting content: \(String(describing: responseContent))")
+            return responseContent ?? ""
+        } catch {
+            print("Error in sending prompt and getting response: \(error)")
         }
         
-        return lastMessage.content
+        return "" // 如果出错或没有收到响应，则返回空字符串
     }
 }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var chatStore: ChatStore
+    @StateObject var imageStore: ImageStore
     @State private var messageText: String = ""
     @State private var messages: [(text: String, isUser: Bool, date: Date)] = []
     @State private var isTextFieldVisible: Bool = true
@@ -16,22 +17,29 @@ struct ContentView: View {
                     TodayView(
                         store: chatStore
                     )
-                        .tabItem {
-                            Label("Today", systemImage: "calendar")
-                        }
-                        .environmentObject(messageService)
+                    .tabItem {
+                        Label("Today", systemImage: "calendar")
+                    }
+                    .environmentObject(messageService)
                     
-                    StoryView()
-                        .tabItem {
-                            Label("Story", systemImage: "book.closed")
-                        }
+                    NavigationView {
+                        StoryView(
+                            chatStore: chatStore,
+                            imageStore: imageStore
+                        )
+                    }
+                    .tabItem {
+                        Label("Story", systemImage: "book.closed")
+                    }
                     
                     InsightView()
                         .tabItem {
                             Label("Insight", systemImage: "eye")
                         }
                     
-                    PersonView()
+                    PersonView(
+                        chatStore: chatStore
+                    )
                         .tabItem {
                             Label("My", systemImage: "person")
                         }

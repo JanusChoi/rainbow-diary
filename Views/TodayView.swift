@@ -50,22 +50,25 @@ struct TodayView: View {
                 }
             }
             .navigationDestination(for: String.self) { conversationId in
-                Text("Navigating to conversation with ID: \(conversationId)")
+//                Text("Navigating to conversation with ID: \(conversationId)")
                 detailViewFor(conversationId: conversationId)
             }
         } detail: {
             if let conversationId = store.selectedConversationID,
                let conversation = store.conversations.first(where: { $0.id == conversationId }) {
-                Text("DetailView for selected conversation with ID: \(conversation.id)")
+//                Text("DetailView for selected conversation with ID: \(conversation.id)")
                 detailViewFor(conversationId: conversation.id)
             }
+        }
+        .onAppear {
+            store.loadConversationsFromEntries()
         }
     }
     
     @ViewBuilder
     private func detailViewFor(conversationId: String) -> some View {
         // 使用集合来查找对应的 Conversation
-        Text("Constructing DetailView for conversation with ID: \(conversationId)")
+//        Text("Constructing DetailView for conversation with ID: \(conversationId)")
         if let conversation = store.conversations.first(where: { $0.id == conversationId }) {
             DetailView(
                 dataService: dataService,
@@ -104,14 +107,6 @@ struct TodayView: View {
     func startVoiceInput() {
         // 语音输入逻辑
         print("hitting button")
-    }
-    
-    func sendMessage() {
-        // 发送消息
-        messages.append((text: messageText, isUser: true, date: Date()))
-        let prompt = messageText
-        messageService.sendMessage(prompt)
-        messageText = ""
     }
     
     func isNewDay(message: (text: String, isUser: Bool, date: Date)) -> Bool {

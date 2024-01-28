@@ -21,22 +21,10 @@ struct ListView: View {
         List {
             ForEach(groupedConversations.keys.sorted(by: >), id: \.self) { date in
                 Section(header: Text(dateString(from: date))) {
-//                    ForEach(groupedConversations[date] ?? [], id: \.id) { conversation in
-//                        NavigationLink(
-//                            value: conversation.id
-//                        ) {
-//                            Text(conversation.messages.last?.content ?? "New Session")
-//                                .lineLimit(2)
-//                        }
-//                    }
-//                    .onDelete(perform: deleteConversations)
                     ForEach(groupedConversations[date] ?? [], id: \.id) { conversation in
                         NavigationLink(value: conversation.id) {
                             Text(conversation.messages.last?.content ?? "New Session")
                                 .lineLimit(2)
-//                                .onTapGesture{
-//                                    print("ListView: Tapped Conversation with ID \(conversation.id)")
-//                                }
                         }
                     }
                     .onDelete(perform: deleteConversations)

@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import OpenAI
 
 struct PersonView: View {
+    @StateObject var chatStore: ChatStore
     @State private var openaiKey: String = ""
+    @State private var showAlert = false
+    
     var body: some View {
         VStack {
             Text("Input your OpenAI key")
-            TextField("sk-XXXXXX", text: $openaiKey)
+            SecureField("sk-XXXXXX", text: $openaiKey)
                 .multilineTextAlignment(.center)
                 .padding()
             Button(action: {
@@ -23,15 +27,15 @@ struct PersonView: View {
                 Text("Submit")
             })
         }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Key Saved"), message: Text("Your OpenAI key has been saved."), dismissButton: .default(Text("OK")))
+        }
     }
     
     private func proceedToSave() {
         UserDefaults.standard.set(openaiKey, forKey: "openaiKey")
-    }
-}
-
-struct PersonView_Previews: PreviewProvider {
-    static var previews: some View {
-        PersonView()
+        let client = OpenAI(apiToken: openaiKey)
+        chatStore.updateClient(client)
+        showAlert = true
     }
 }

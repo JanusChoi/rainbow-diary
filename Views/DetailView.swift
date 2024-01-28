@@ -95,12 +95,11 @@ struct DetailView: View {
                     } else {
                         inputBar(scrollViewProxy: scrollViewProxy)
                     }
-                    
                 }
             }
         }
         .onDisappear() {
-            store.saveConversationToEntry(conversation)
+            store.dataService.createOrUpdateEntry(from: conversation, isUpdate: true)
         }
     }
 

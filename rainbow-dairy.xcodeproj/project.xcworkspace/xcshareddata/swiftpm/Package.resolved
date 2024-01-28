@@ -17,15 +17,6 @@
         "branch" : "master",
         "revision" : "4270b02490752f5c224de790764465faf552ec63"
       }
-    },
-    {
-      "identity" : "openai",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MacPaw/OpenAI",
-      "state" : {
-        "branch" : "main",
-        "revision" : "1b1765ba115bbc09fa464cc00d225c7c95d31a67"
-      }
     }
   ],
   "version" : 2
